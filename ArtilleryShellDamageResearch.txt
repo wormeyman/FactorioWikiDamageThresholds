@@ -1,0 +1,55 @@
+== Thresholds ==
+The table below shows for each level of the artillery shell damage research how many (normal [[quality]]{{SA}}) [[artillery shell]]s are required to destroy a [[Enemies#Worms|Behemoth worm]], a [[Enemies#Nests|Biter spawner]] or [[Enemies#Nests|Spitter spawner]], or an [[Enemies#Nests|Egg raft]]{{SA}}. HP values for spawners and egg rafts are at maximum evolution. Small, medium, and big worms and small egg rafts are always destroyed in one hit regardless of research level and are not shown.
+
+<!-- Artillery Shell Damage (enemies) damage thresholds -->
+{| class="wikitable" style="text-align:center;"
+! colspan="5" | Shells required to destroy enemy
+|-
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="1" | {{Icon|Behemoth_worm}} !! colspan="1" | {{Icon|Biter_nest}} !! colspan="1" | {{Icon|Egg_raft}}
+|-
+! {{Icon|Artillery shell}} !! {{Icon|Artillery shell}} !! {{Icon|Artillery shell}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|0}}
+| -
+| rowspan="8" | {{Icon|Artillery shell|2}}
+| rowspan="9" | {{Icon|Artillery shell|2}}
+| rowspan="5" | {{Icon|Artillery shell|3}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|1}}
+| 7k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|2}}
+| 21k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|3}}
+| 49k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|4}}
+| 105k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|5}}
+| 217k
+| rowspan="6" | {{Icon|Artillery shell|2}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|6}}
+| 441k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|7}}
+| 889k
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|8}}
+| 1.785M
+| rowspan="4" | {{Icon|Artillery shell|1}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|9}}
+| 3.577M
+| rowspan="3" | {{Icon|Artillery shell|1}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|10}} to {{Icontech|Artillery shell damage (research)|19}}
+| 7.161M - 3.67G
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Artillery shell damage (research)|20}}+
+| 7.34G
+| {{Icon|Artillery shell|1}}
+|}
