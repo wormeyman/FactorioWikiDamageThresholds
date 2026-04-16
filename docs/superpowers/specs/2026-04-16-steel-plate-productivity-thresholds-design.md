@@ -150,10 +150,16 @@ def _sp_cumulative_costs(max_lvl: int = 30) -> dict:
 ### Wiki table format
 
 - Caption: `Productivity bonus at each research level`
-- 2-row header: `Level (rowspan=2) | Cost (rowspan=2) | Foundry (colspan=4) | Electric furnace (colspan=4)`
-- Second header row: module config icons/names
-- Data cells: plain text percentage (e.g. `150%`); `300%` cells use rowspan merging
+- 3-row header:
+  - Row 1: `Level (rowspan=3) | Cost (rowspan=3) | {{Icon|Foundry}} Foundry (colspan=4) | {{Icon|Electric furnace}} Electric furnace (colspan=4)`
+  - Row 2: module config group labels - `No modules (colspan=1)` | `{{Icon|Productivity module 3}} (colspan=1)` | `{{Icon|Productivity module 2}} legendary (colspan=1)` | `{{Icon|Productivity module 3}} legendary (colspan=1)` - repeated for each machine
+  - Row 3: slot counts - e.g. `(4 slots)` / `(2 slots)` per column, or omitted if redundant
 - Level cells: `{{Icontech|Steel plate productivity (research)|N}}`; last row appends `+`
+- Data cells: plain text percentage (e.g. `150%`); no natural item icon exists for a % value
+- Capped cells (`300%`): bold or styled to stand out, use rowspan merging through remaining rows
+- Exact icon syntax for legendary quality modules (e.g. `{{Icon|Productivity module 2|legendary}}`) to be verified against the Factorio wiki during implementation
+
+**Note:** A simpler 2-row header may be preferable if the 3-row version becomes unwieldy - decide during implementation based on how it renders.
 
 ## CLAUDE.md Updates
 
