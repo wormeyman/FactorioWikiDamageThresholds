@@ -194,3 +194,137 @@ def print_text(research: dict) -> None:
             vals.append(f'{p}%')
         row = f'{lvl_str:>8}  ' + '  '.join(f'{v:>{w}}' for v in vals)
         print(row)
+
+# ---------------------------------------------------------------------------
+# Wiki output
+# ---------------------------------------------------------------------------
+
+# Icon markup for machine group headers (row 1 of 2-row header)
+_MACHINE_ICONS = {
+    'Foundry':          '{{Icon|Foundry}}',
+    'Electric furnace': '{{Icon|Electric furnace}}',
+}
+
+# Icon markup for module config sub-headers (row 2 of 2-row header).
+# Legendary quality icon syntax verified against https://wiki.factorio.com/Template:Icon
+_MODULE_ICONS = {
+    'No modules':              '-',
+    'Prod module 3':           '{{Icon|Productivity module 3}}',
+    'Legendary Prod module 2': '{{Icon|Productivity module 2|legendary}}',
+    'Legendary Prod module 3': '{{Icon|Productivity module 3|legendary}}',
+}
+
+
+def print_wiki_table(research: dict) -> None:
+    """Emit a MediaWiki table showing productivity % at each breakpoint level.
+
+    Structure:
+    - 2-row header: machine group icons (row 1) + module config icons (row 2)
+    - Data rows: one per breakpoint level (levels where any config first hits cap)
+    - Level 0 always included as baseline; last row gets '+' suffix
+    - Non-capped cells: plain text percentage (e.g. '150%'), rowspan=1
+    - Capped cells (300%): bold text, rowspan covers all remaining rows
+    """
+    cols = build_columns(research)
+    bpl = research['bonus_per_level']
+    breakpoints = find_breakpoints(research)
+    max_level = research['max_level']
+    cap = research['cap']
+    cap_int = int(round(cap * 100))
+    n_cols = len(cols)
+    n_bps = len(breakpoints)
+    tech_name = research['tech_name']
+    cumulative_costs = research['cumulative_costs']
+    n_configs = len(research['module_configs'])
+
+    def display_pct(ci: int, lvl: int) -> int:
+        c = cols[ci]
+        p = total_prod(c['base_prod'], c['slots'], c['module_bonus'], lvl, bpl)
+        return int(round(min(p, cap) * 100))
+
+    print(f'<!-- {research["name"]} productivity thresholds -->')
+    print('{| class="wikitable" style="text-align:center;"')
+
+    # --- 2-row header ---
+    # Row 1: Level (rowspan=2) | Cost (rowspan=2) | machine group headers
+    machine_header_cells = []
+    for m_name in research['machines']:
+        machine_header_cells.append(
+            f'colspan="{n_configs}" | {_MACHINE_ICONS[m_name]} {m_name}')
+    print(f'! rowspan="2" | Level'
+          f' !! rowspan="2" | Cumulative<br>research cost'
+          f' !! ' + ' !! '.join(machine_header_cells))
+    print('|-')
+
+    # Row 2: module config icons repeated for each machine
+    config_cells = []
+    for _ in research['machines']:
+        for cfg in research['module_configs']:
+            config_cells.append(_MODULE_ICONS[cfg])
+    print('! ' + ' !! '.join(config_cells))
+    print('|-')
+
+    # --- Data rows ---
+    # capped[ci] tracks whether column ci has already reached 300%.
+    # When a column first caps, emit it with rowspan = remaining rows.
+    # On subsequent rows, skip capped columns (covered by the earlier rowspan).
+    capped = [False] * n_cols
+
+    for bi, lvl in enumerate(breakpoints):
+        is_last_row = (bi == n_bps - 1)
+        n_rows_remaining = n_bps - bi  # rows from this one to end, inclusive
+
+        # Level cell: last row gets '+' suffix
+        if is_last_row:
+            lvl_str = f'{{{{Icontech|{tech_name}|{lvl}}}}}+'
+        else:
+            lvl_str = f'{{{{Icontech|{tech_name}|{lvl}}}}}'
+        cost_val = cumulative_costs.get(lvl, '?')
+
+        print('|- style="vertical-align:top;"')
+        print(f'! style="vertical-align:middle;" | {lvl_str}')
+        print(f'| {cost_val}')
+
+        for ci in range(n_cols):
+            if capped[ci]:
+                continue  # cell is covered by rowspan from the row it first capped
+
+            val = display_pct(ci, lvl)
+
+            if val >= cap_int:
+                # First time this column hits cap: bold, rowspan through end of table
+                capped[ci] = True
+                cell = f"'''{val}%'''"
+                if n_rows_remaining > 1:
+                    print(f'| rowspan="{n_rows_remaining}" | {cell}')
+                else:
+                    print(f'| {cell}')
+            else:
+                # Not yet capped: plain text, no merging (value differs at each row)
+                print(f'| {val}%')
+
+    print('|}')
+
+
+# ---------------------------------------------------------------------------
+
+if __name__ == '__main__':
+    args = sys.argv[1:]
+    wiki = '--wiki' in args
+    research_args = [a for a in args if not a.startswith('--')]
+
+    if research_args:
+        unknown = [a for a in research_args if a not in RESEARCHES]
+        if unknown:
+            print(f'Unknown research(es): {unknown}', file=sys.stderr)
+            print(f'Available: {list(RESEARCHES)}', file=sys.stderr)
+            sys.exit(1)
+        selected = [RESEARCHES[a] for a in research_args]
+    else:
+        selected = list(RESEARCHES.values())
+
+    for research in selected:
+        if wiki:
+            print_wiki_table(research)
+        else:
+            print_text(research)
