@@ -116,3 +116,81 @@ RESEARCHES = {
         ],
     },
 }
+
+# ---------------------------------------------------------------------------
+# Column building and breakpoint detection
+# ---------------------------------------------------------------------------
+
+def build_columns(research: dict) -> list:
+    """Return flat list of column dicts for the given research.
+
+    One column per (machine x module_config) combination, ordered:
+    Foundry configs first, then Electric furnace configs.
+    Within each machine: in the order listed in research['module_configs'].
+    """
+    cols = []
+    for machine_name in research['machines']:
+        machine = MACHINES[machine_name]
+        for config_name in research['module_configs']:
+            cols.append({
+                'machine':      machine_name,
+                'config':       config_name,
+                'label':        f'{machine_name} / {config_name}',
+                'base_prod':    machine['base_prod'],
+                'slots':        machine['module_slots'],
+                'module_bonus': MODULES[config_name],
+            })
+    return cols
+
+
+def find_breakpoints(research: dict) -> list:
+    """Levels at which at least one column first reaches the productivity cap.
+
+    Always includes level 0 as the baseline row.
+    Capped at research['max_level'] so no row exceeds the table end.
+    Returns a sorted list of unique levels.
+    """
+    cols = build_columns(research)
+    cap = research['cap']
+    bpl = research['bonus_per_level']
+    max_level = research['max_level']
+    cap_levels = set()
+    for col in cols:
+        lvl = min_level_to_cap(
+            col['base_prod'], col['slots'], col['module_bonus'], bpl, cap)
+        cap_levels.add(min(lvl, max_level))
+    return sorted({0} | cap_levels)
+
+# ---------------------------------------------------------------------------
+# Text output
+# ---------------------------------------------------------------------------
+
+def print_text(research: dict) -> None:
+    """Print a plain text summary of productivity % at each breakpoint level."""
+    cols = build_columns(research)
+    bpl = research['bonus_per_level']
+    breakpoints = find_breakpoints(research)
+    max_level = research['max_level']
+    cap = research['cap']
+
+    print(f'\n=== {research["name"]} (max level {max_level}) ===')
+
+    w = 8
+    labels = [c['label'] for c in cols]
+    hdr = f"{'Level':>8}  " + '  '.join(f'{lb[:w]:>{w}}' for lb in labels)
+    print(hdr)
+    print('-' * len(hdr))
+
+    n_bps = len(breakpoints)
+    for i, lvl in enumerate(breakpoints):
+        next_lvl = breakpoints[i + 1] if i + 1 < n_bps else max_level + 1
+        end = next_lvl - 1
+        lvl_str = str(lvl) if end == lvl else f'{lvl}-{end}'
+        vals = []
+        for c in cols:
+            p = int(round(min(
+                total_prod(c['base_prod'], c['slots'], c['module_bonus'], lvl, bpl),
+                cap) * 100))
+            vals.append(f'{p}%')
+        row = f'{lvl_str:>8}  ' + '  '.join(f'{v:>{w}}' for v in vals)
+        print(row)
