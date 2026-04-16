@@ -74,6 +74,47 @@ shots   = ceil(hp / dmg_eff)
 
 Resistances are (flat, pct) tuples in `factorio_thresholds.py`. Behemoth Biter: hp 3000, explosion (12, 0.10), physical (12, 0.10). Spawners: hp 350, explosion (5, 0.0), physical (2, 0.15).
 
+## Productivity Formula
+
+Total productivity bonus at a given research level:
+
+```
+total_prod = base_prod + slots * module_bonus + level * bonus_per_level
+```
+
+Capped at 300% (3.00). Minimum level to reach cap:
+
+```
+min_level = ceil( (cap - base_prod - slots * module_bonus) / bonus_per_level )
+```
+
+Steel Plate Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cumulative science cost per level N: `round(1000 × 1.5^N)` packs (Automation + Logistic + Chemical + Production)
+
+Machines and base productivity:
+- Foundry: 50% base, 4 module slots
+- Electric furnace: 0% base, 2 module slots
+
+Module bonuses per slot:
+- No modules: 0%
+- Productivity module 3: 10%
+- Legendary Productivity module 2: 15%
+- Legendary Productivity module 3: 25%
+
+Known breakpoints (verified against wiki):
+- Level 10: Electric furnace + no modules reaches 100% productivity (notable level, manually added)
+- Level 15: Foundry + 4x Legendary Prod 3 reaches 300% cap
+- Level 20: Notable milestone (manually added)
+- Level 25: Foundry + no modules reaches 300% cap; Electric furnace + 2x Legendary Prod 3 reaches 300% cap
+
+Research dict supports two optional fields:
+- `notable_levels`: list of manually pinned row levels beyond the auto-detected cap breakpoints
+- `intro`: section header + paragraph emitted before the wiki table (so regenerating the file is fully automated)
+
+Wiki icon format for legendary modules: `{{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}`. Sub-header cells include slot count prefix (e.g. `4× {{Icon|...}}`) generated dynamically from `MACHINES[name]['module_slots']`.
+
 ## Verification
 
 ```bash
@@ -81,6 +122,14 @@ python3 factorio_thresholds.py stronger_explosives
 # Small/Rocket: level 0-2 = 2, level 3+ = 1
 # Big/Exp AoE: level 45 = 2, level 46 = 1
 # Big Prom/Exp AoE: level 90 = 2, level 91 = 1
+
+python3 factorio_productivity.py steel_plate
+# Breakpoints: [0, 10, 15, 19, 20, 21, 25, 27, 28, 30]
+# Level 10 / EFurn+none: 100%
+# Level 15 / Foundry+LP3: 300% (first cap)
+# Level 30 / EFurn+none: 300% (last cap)
+
+python3 factorio_productivity.py steel_plate --wiki > WikiArticles/SteelPlateProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies

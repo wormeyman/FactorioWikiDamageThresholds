@@ -5,7 +5,7 @@ The table below shows the total productivity bonus at key research levels for [[
 {| class="wikitable" style="text-align:center;"
 ! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="4" | {{Icon|Foundry}} Foundry !! colspan="4" | {{Icon|Electric furnace}} Electric furnace
 |-
-! - !! {{Icon|Productivity module 3}} !! {{Icon|Productivity module 2|legendary}} !! {{Icon|Productivity module 3|legendary}} !! - !! {{Icon|Productivity module 3}} !! {{Icon|Productivity module 2|legendary}} !! {{Icon|Productivity module 3|legendary}}
+! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}} !! - !! 2× {{Icon|Productivity module 3}} !! 2× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 2× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}
 |-
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Steel plate productivity (research)|0}}
@@ -19,12 +19,23 @@ The table below shows the total productivity bonus at key research levels for [[
 | 30%
 | 50%
 |- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Steel plate productivity (research)|10}}
+| 170k
+| 150%
+| 190%
+| 210%
+| 250%
+| 100%
+| 120%
+| 130%
+| 150%
+|- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Steel plate productivity (research)|15}}
 | 1.311M
 | 200%
 | 240%
 | 260%
-| rowspan="7" | '''300%'''
+| rowspan="8" | '''300%'''
 | 150%
 | 170%
 | 180%
@@ -34,11 +45,20 @@ The table below shows the total productivity bonus at key research levels for [[
 | 6.648M
 | 240%
 | 280%
-| rowspan="6" | '''300%'''
+| rowspan="7" | '''300%'''
 | 190%
 | 210%
 | 220%
 | 240%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Steel plate productivity (research)|20}}
+| 9.973M
+| 250%
+| 290%
+| 200%
+| 220%
+| 230%
+| 250%
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Steel plate productivity (research)|21}}
 | 14.961M

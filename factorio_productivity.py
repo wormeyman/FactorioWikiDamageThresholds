@@ -107,6 +107,15 @@ RESEARCHES = {
         'cumulative_costs': _sp_cumulative_costs(),
         'max_level': 30,
         'cap': 3.00,
+        'intro': (
+            "== Thresholds ==\n"
+            "The table below shows the total productivity bonus at key research levels"
+            " for [[Steel plate productivity (research)]]{{SA}}, for each machine and"
+            " module configuration. Productivity is capped at 300%; cells shown in"
+            " '''bold''' indicate that the configuration has reached the cap at that"
+            " level and will not improve further with additional research.\n"
+        ),
+        'notable_levels': [10, 20],
         'machines': ['Foundry', 'Electric furnace'],
         'module_configs': [
             'No modules',
@@ -159,7 +168,8 @@ def find_breakpoints(research: dict) -> list:
         lvl = min_level_to_cap(
             col['base_prod'], col['slots'], col['module_bonus'], bpl, cap)
         cap_levels.add(min(lvl, max_level))
-    return sorted({0} | cap_levels)
+    notable = set(research.get('notable_levels', []))
+    return sorted({0} | cap_levels | notable)
 
 # ---------------------------------------------------------------------------
 # Text output
@@ -210,8 +220,8 @@ _MACHINE_ICONS = {
 _MODULE_ICONS = {
     'No modules':              '-',
     'Prod module 3':           '{{Icon|Productivity module 3}}',
-    'Legendary Prod module 2': '{{Icon|Productivity module 2|legendary}}',
-    'Legendary Prod module 3': '{{Icon|Productivity module 3|legendary}}',
+    'Legendary Prod module 2': '{{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}}',
+    'Legendary Prod module 3': '{{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}',
 }
 
 
@@ -242,6 +252,8 @@ def print_wiki_table(research: dict) -> None:
         p = total_prod(c['base_prod'], c['slots'], c['module_bonus'], lvl, bpl)
         return int(round(min(p, cap) * 100))
 
+    if research.get('intro'):
+        print(research['intro'])
     print(f'<!-- {research["name"]} productivity thresholds -->')
     print('{| class="wikitable" style="text-align:center;"')
 
@@ -256,11 +268,15 @@ def print_wiki_table(research: dict) -> None:
           f' !! ' + ' !! '.join(machine_header_cells))
     print('|-')
 
-    # Row 2: module config icons repeated for each machine
+    # Row 2: module config icons repeated for each machine, prefixed with slot count
     config_cells = []
-    for _ in research['machines']:
+    for m_name in research['machines']:
+        slots = MACHINES[m_name]['module_slots']
         for cfg in research['module_configs']:
-            config_cells.append(_MODULE_ICONS[cfg])
+            icon = _MODULE_ICONS[cfg]
+            if cfg != 'No modules':
+                icon = f'{slots}× {icon}'
+            config_cells.append(icon)
     print('! ' + ' !! '.join(config_cells))
     print('|-')
 
