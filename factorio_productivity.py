@@ -185,7 +185,7 @@ RESEARCHES = {
             "The table below shows the total productivity bonus at key research levels"
             " for [[Plastic bar productivity (research)]]{{SA}}, for each machine and"
             " module configuration. Applies to the [[Plastic bar]] recipe (Chemical plant,"
-            " Biochamber, and Cryogenic plant) and the [[Bioplastic]] recipe (Biochamber only)."
+            " Biochamber, and Cryogenic plant) and the [[Plastic bar#Alternative recipes|Bioplastic]] recipe (Biochamber only)."
             " Productivity is capped at 300%; cells shown in"
             " '''bold''' indicate that the configuration has reached the cap at that"
             " level and will not improve further with additional research.\n"
