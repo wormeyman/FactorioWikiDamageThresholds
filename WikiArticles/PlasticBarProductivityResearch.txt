@@ -1,0 +1,146 @@
+== Thresholds ==
+The table below shows the total productivity bonus at key research levels for [[Plastic bar productivity (research)]]{{SA}}, for each machine and module configuration. Applies to the [[Plastic bar]] recipe (Chemical plant, Biochamber, and Cryogenic plant) and the [[Bioplastic]] recipe (Biochamber only). Productivity is capped at 300%; cells shown in '''bold''' indicate that the configuration has reached the cap at that level and will not improve further with additional research.
+
+<!-- Plastic Bar Productivity productivity thresholds -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="4" | {{Icon|Chemical plant}} Chemical plant !! colspan="4" | {{Icon|Biochamber|space-age=yes}} Biochamber !! colspan="4" | {{Icon|Cryogenic plant|space-age=yes}} Cryogenic plant
+|-
+! - !! 3× {{Icon|Productivity module 3}} !! 3× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 3× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}} !! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}} !! - !! 8× {{Icon|Productivity module 3}} !! 8× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 8× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|0}}
+| -
+| 0%
+| 30%
+| 45%
+| 75%
+| 50%
+| 90%
+| 110%
+| 150%
+| 0%
+| 80%
+| 120%
+| 200%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|10}}
+| 170k
+| 100%
+| 130%
+| 145%
+| 175%
+| 150%
+| 190%
+| 210%
+| 250%
+| 100%
+| 180%
+| 220%
+| rowspan="12" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|15}}
+| 1.311M
+| 150%
+| 180%
+| 195%
+| 225%
+| 200%
+| 240%
+| 260%
+| rowspan="11" | '''300%'''
+| 150%
+| 230%
+| 270%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|18}}
+| 4.431M
+| 180%
+| 210%
+| 225%
+| 255%
+| 230%
+| 270%
+| 290%
+| 180%
+| 260%
+| rowspan="10" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|19}}
+| 6.648M
+| 190%
+| 220%
+| 235%
+| 265%
+| 240%
+| 280%
+| rowspan="9" | '''300%'''
+| 190%
+| 270%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|20}}
+| 9.973M
+| 200%
+| 230%
+| 245%
+| 275%
+| 250%
+| 290%
+| 200%
+| 280%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|21}}
+| 14.961M
+| 210%
+| 240%
+| 255%
+| 285%
+| 260%
+| rowspan="7" | '''300%'''
+| 210%
+| 290%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|22}}
+| 22.442M
+| 220%
+| 250%
+| 265%
+| 295%
+| 270%
+| 220%
+| rowspan="6" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|23}}
+| 33.665M
+| 230%
+| 260%
+| 275%
+| rowspan="5" | '''300%'''
+| 280%
+| 230%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|25}}
+| 75.751M
+| 250%
+| 280%
+| 295%
+| rowspan="4" | '''300%'''
+| 250%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|26}}
+| 113.627M
+| 260%
+| 290%
+| rowspan="3" | '''300%'''
+| 260%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|27}}
+| 170.442M
+| 270%
+| rowspan="2" | '''300%'''
+| 270%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Plastic bar productivity (research)|30}}+
+| 575.25M
+| '''300%'''
+| '''300%'''
+|}
