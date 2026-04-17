@@ -24,6 +24,9 @@ MACHINES = {
     'Electric furnace':      {'base_prod': 0.00, 'module_slots': 2},
     'Assembling machine 3':  {'base_prod': 0.00, 'module_slots': 4},
     'Electromagnetic plant': {'base_prod': 0.50, 'module_slots': 5},
+    'Chemical plant':        {'base_prod': 0.00, 'module_slots': 3},
+    'Biochamber':            {'base_prod': 0.50, 'module_slots': 4},
+    'Cryogenic plant':       {'base_prod': 0.00, 'module_slots': 8},
 }
 
 # ---------------------------------------------------------------------------
@@ -170,6 +173,32 @@ RESEARCHES = {
             'Legendary Prod module 3',
         ],
     },
+    'plastic_bar': {
+        'name': 'Plastic Bar Productivity',
+        'tech_name': 'Plastic bar productivity (research)',
+        'bonus_per_level': 0.10,
+        'cumulative_costs': _cumulative_costs(1000, 30),
+        'max_level': 30,
+        'cap': 3.00,
+        'intro': (
+            "== Thresholds ==\n"
+            "The table below shows the total productivity bonus at key research levels"
+            " for [[Plastic bar productivity (research)]]{{SA}}, for each machine and"
+            " module configuration. Applies to the [[Plastic bar]] recipe (Chemical plant,"
+            " Biochamber, and Cryogenic plant) and the [[Bioplastic]] recipe (Biochamber only)."
+            " Productivity is capped at 300%; cells shown in"
+            " '''bold''' indicate that the configuration has reached the cap at that"
+            " level and will not improve further with additional research.\n"
+        ),
+        'notable_levels': [10, 20],
+        'machines': ['Chemical plant', 'Biochamber', 'Cryogenic plant'],
+        'module_configs': [
+            'No modules',
+            'Prod module 3',
+            'Legendary Prod module 2',
+            'Legendary Prod module 3',
+        ],
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -261,6 +290,9 @@ _MACHINE_ICONS = {
     'Electric furnace':      '{{Icon|Electric furnace}}',
     'Assembling machine 3':  '{{Icon|Assembling machine 3}}',
     'Electromagnetic plant': '{{Icon|Electromagnetic plant}}',
+    'Chemical plant':        '{{Icon|Chemical plant}}',
+    'Biochamber':            '{{Icon|Biochamber|space-age=yes}}',
+    'Cryogenic plant':       '{{Icon|Cryogenic plant|space-age=yes}}',
 }
 
 # Icon markup for module config sub-headers (row 2 of 2-row header).
