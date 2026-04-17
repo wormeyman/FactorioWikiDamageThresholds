@@ -20,8 +20,10 @@ import sys
 # ---------------------------------------------------------------------------
 
 MACHINES = {
-    'Foundry':          {'base_prod': 0.50, 'module_slots': 4},
-    'Electric furnace': {'base_prod': 0.00, 'module_slots': 2},
+    'Foundry':               {'base_prod': 0.50, 'module_slots': 4},
+    'Electric furnace':      {'base_prod': 0.00, 'module_slots': 2},
+    'Assembling machine 3':  {'base_prod': 0.00, 'module_slots': 4},
+    'Electromagnetic plant': {'base_prod': 0.50, 'module_slots': 5},
 }
 
 # ---------------------------------------------------------------------------
@@ -205,8 +207,10 @@ def print_text(research: dict) -> None:
 
 # Icon markup for machine group headers (row 1 of 2-row header)
 _MACHINE_ICONS = {
-    'Foundry':          '{{Icon|Foundry}}',
-    'Electric furnace': '{{Icon|Electric furnace}}',
+    'Foundry':               '{{Icon|Foundry}}',
+    'Electric furnace':      '{{Icon|Electric furnace}}',
+    'Assembling machine 3':  '{{Icon|Assembling machine 3}}',
+    'Electromagnetic plant': '{{Icon|Electromagnetic plant}}',
 }
 
 # Icon markup for module config sub-headers (row 2 of 2-row header).
