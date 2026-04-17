@@ -139,6 +139,8 @@ Research dict supports two optional fields:
 
 Wiki icon format for legendary modules: `{{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}`. Sub-header cells include slot count prefix (e.g. `4× {{Icon|...}}`) generated dynamically from `MACHINES[name]['module_slots']`.
 
+**Intro text rule:** Never use `{{icon|...}}` or `{{Icon|...}}` inline in prose sentences in the `intro` field. The Factorio Wiki renders these as block-level `<div>` elements, which breaks the paragraph into fragments. Use plain wikilinks (`[[Item name]]`) instead. Icons are fine in table headers and cells - only avoid them in the intro paragraph text.
+
 ## Verification
 
 ```bash
