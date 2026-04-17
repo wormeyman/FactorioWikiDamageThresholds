@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Maintenance Rules
+
+- When a PR is merged that adds a new research to `factorio_productivity.py` or a new tree to `factorio_thresholds.py`, update `README.md` to include the new text and `--wiki` commands.
+
 ## Repository Overview
 
 This is a content repository for contributions to the [Factorio Wiki](https://wiki.factorio.com/). It contains:
