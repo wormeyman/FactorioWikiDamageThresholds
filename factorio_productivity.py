@@ -231,7 +231,7 @@ def print_text(research: dict) -> None:
 
 # Icon markup for machine group headers (row 1 of 2-row header)
 _MACHINE_ICONS = {
-    'Foundry':               '{{Icon|Foundry}}',
+    'Foundry':               '{{Icon|Foundry|space-age=yes}}',
     'Electric furnace':      '{{Icon|Electric furnace}}',
     'Assembling machine 3':  '{{Icon|Assembling machine 3}}',
     'Electromagnetic plant': '{{Icon|Electromagnetic plant}}',
