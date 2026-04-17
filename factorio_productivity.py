@@ -120,6 +120,30 @@ RESEARCHES = {
             'Legendary Prod module 3',
         ],
     },
+    'processing_unit': {
+        'name': 'Processing Unit Productivity',
+        'tech_name': 'Processing unit productivity (research)',
+        'bonus_per_level': 0.10,
+        'cumulative_costs': _cumulative_costs(1000, 30),
+        'max_level': 30,
+        'cap': 3.00,
+        'intro': (
+            "== Thresholds ==\n"
+            "The table below shows the total productivity bonus at key research levels"
+            " for [[Processing unit productivity (research)]]{{SA}}, for each machine and"
+            " module configuration. Productivity is capped at 300%; cells shown in"
+            " '''bold''' indicate that the configuration has reached the cap at that"
+            " level and will not improve further with additional research.\n"
+        ),
+        'notable_levels': [10, 20],
+        'machines': ['Assembling machine 3', 'Electromagnetic plant'],
+        'module_configs': [
+            'No modules',
+            'Prod module 3',
+            'Legendary Prod module 2',
+            'Legendary Prod module 3',
+        ],
+    },
 }
 
 # ---------------------------------------------------------------------------
