@@ -20,8 +20,10 @@ import sys
 # ---------------------------------------------------------------------------
 
 MACHINES = {
-    'Foundry':          {'base_prod': 0.50, 'module_slots': 4},
-    'Electric furnace': {'base_prod': 0.00, 'module_slots': 2},
+    'Foundry':               {'base_prod': 0.50, 'module_slots': 4},
+    'Electric furnace':      {'base_prod': 0.00, 'module_slots': 2},
+    'Assembling machine 3':  {'base_prod': 0.00, 'module_slots': 4},
+    'Electromagnetic plant': {'base_prod': 0.50, 'module_slots': 5},
 }
 
 # ---------------------------------------------------------------------------
@@ -81,17 +83,11 @@ def min_level_to_cap(base: float, slots: int, module_bonus: float,
 # Cumulative research cost functions
 # ---------------------------------------------------------------------------
 
-def _sp_cumulative_costs(max_lvl: int = 30) -> dict:
-    """Cumulative science pack cost to reach each Steel Plate Productivity level.
-
-    Cost per level N: round(1000 x 1.5^N) packs
-    (Automation + Logistic + Chemical + Production science packs).
-    Returns: {level: SI-formatted string} with '-' for level 0.
-    """
+def _cumulative_costs(cost_base: int, max_lvl: int, multiplier: float = 1.5) -> dict:
     total = 0
     result: dict = {0: '-'}
     for lvl in range(1, max_lvl + 1):
-        total += round(1000 * 1.5 ** lvl)
+        total += round(cost_base * multiplier ** lvl)
         result[lvl] = _si(total)
     return result
 
@@ -104,7 +100,7 @@ RESEARCHES = {
         'name': 'Steel Plate Productivity',
         'tech_name': 'Steel plate productivity (research)',
         'bonus_per_level': 0.10,
-        'cumulative_costs': _sp_cumulative_costs(),
+        'cumulative_costs': _cumulative_costs(1000, 30),
         'max_level': 30,
         'cap': 3.00,
         'intro': (
@@ -117,6 +113,30 @@ RESEARCHES = {
         ),
         'notable_levels': [10, 20],
         'machines': ['Foundry', 'Electric furnace'],
+        'module_configs': [
+            'No modules',
+            'Prod module 3',
+            'Legendary Prod module 2',
+            'Legendary Prod module 3',
+        ],
+    },
+    'processing_unit': {
+        'name': 'Processing Unit Productivity',
+        'tech_name': 'Processing unit productivity (research)',
+        'bonus_per_level': 0.10,
+        'cumulative_costs': _cumulative_costs(1000, 30),
+        'max_level': 30,
+        'cap': 3.00,
+        'intro': (
+            "== Thresholds ==\n"
+            "The table below shows the total productivity bonus at key research levels"
+            " for [[Processing unit productivity (research)]]{{SA}}, for each machine and"
+            " module configuration. Productivity is capped at 300%; cells shown in"
+            " '''bold''' indicate that the configuration has reached the cap at that"
+            " level and will not improve further with additional research.\n"
+        ),
+        'notable_levels': [10, 20],
+        'machines': ['Assembling machine 3', 'Electromagnetic plant'],
         'module_configs': [
             'No modules',
             'Prod module 3',
@@ -211,8 +231,10 @@ def print_text(research: dict) -> None:
 
 # Icon markup for machine group headers (row 1 of 2-row header)
 _MACHINE_ICONS = {
-    'Foundry':          '{{Icon|Foundry}}',
-    'Electric furnace': '{{Icon|Electric furnace}}',
+    'Foundry':               '{{Icon|Foundry}}',
+    'Electric furnace':      '{{Icon|Electric furnace}}',
+    'Assembling machine 3':  '{{Icon|Assembling machine 3}}',
+    'Electromagnetic plant': '{{Icon|Electromagnetic plant}}',
 }
 
 # Icon markup for module config sub-headers (row 2 of 2-row header).

@@ -1,0 +1,84 @@
+== Thresholds ==
+The table below shows the total productivity bonus at key research levels for [[Processing unit productivity (research)]]{{SA}}, for each machine and module configuration. Productivity is capped at 300%; cells shown in '''bold''' indicate that the configuration has reached the cap at that level and will not improve further with additional research.
+
+<!-- Processing Unit Productivity productivity thresholds -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="4" | {{Icon|Assembling machine 3}} Assembling machine 3 !! colspan="4" | {{Icon|Electromagnetic plant}} Electromagnetic plant
+|-
+! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}} !! - !! 5× {{Icon|Productivity module 3}} !! 5× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 5× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|0}}
+| -
+| 0%
+| 40%
+| 60%
+| 100%
+| 50%
+| 100%
+| 125%
+| 175%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|10}}
+| 170k
+| 100%
+| 140%
+| 160%
+| 200%
+| 150%
+| 200%
+| 225%
+| 275%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|13}}
+| 580.86k
+| 130%
+| 170%
+| 190%
+| 230%
+| 180%
+| 230%
+| 255%
+| rowspan="7" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|18}}
+| 4.431M
+| 180%
+| 220%
+| 240%
+| 280%
+| 230%
+| 280%
+| rowspan="6" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|20}}
+| 9.973M
+| 200%
+| 240%
+| 260%
+| rowspan="5" | '''300%'''
+| 250%
+| rowspan="5" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|24}}
+| 50.499M
+| 240%
+| 280%
+| rowspan="4" | '''300%'''
+| 290%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|25}}
+| 75.751M
+| 250%
+| 290%
+| rowspan="3" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|26}}
+| 113.627M
+| 260%
+| rowspan="2" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Processing unit productivity (research)|30}}+
+| 575.25M
+| '''300%'''
+|}
