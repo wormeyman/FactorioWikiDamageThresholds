@@ -14,9 +14,10 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`WikiArticles/ArtilleryShellDamageResearch.txt`** - MediaWiki markup source for the "Artillery shell damage (research)" wiki page
 - **`FactorioAsteroidDamageCalculator.xlsx`** - Excel export of a Google Sheet used to calculate asteroid damage thresholds. The Google Sheet is the source of truth; the .xlsx export is unreliable. The `Calculator` tab has a `Research Level Required` summary table (columns G-O, rows 15-38).
 - **`factorio_thresholds.py`** - Source of truth for damage threshold calculations. Covers Stronger Explosives (asteroids, biters, spawners), Physical Projectile (gun turret vs Small/Medium asteroids), Laser Weapons (laser turret vs Small/Medium asteroids), and Artillery Shell Damage (enemies). Run with `python3 factorio_thresholds.py [tree] [--wiki]`.
-- **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace) and Processing Unit Productivity (assembling machine 3 and electromagnetic plant), various module configs. Run with `python3 factorio_productivity.py [research] [--wiki]`.
+- **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace), Processing Unit Productivity (assembling machine 3 and electromagnetic plant), and Low Density Structure Productivity (assembling machine 3 and foundry), various module configs. Run with `python3 factorio_productivity.py [research] [--wiki]`.
 - **`WikiArticles/SteelPlateProductivityResearch.txt`** - MediaWiki markup source for the "Steel plate productivity (research)" wiki page thresholds section.
 - **`WikiArticles/ProcessingUnitProductivityResearch.txt`** - MediaWiki markup source for the "Processing unit productivity (research)" wiki page thresholds section.
+- **`WikiArticles/LowDensityStructureProductivityResearch.txt`** - MediaWiki markup source for the "Low density structure productivity (research)" wiki page thresholds section.
 - **`WikiArticles/enemies_wiki.json`** - Factorio wiki API response for the Enemies page. Extract wikitext via `data['parse']['wikitext']['*']`. Contains HP and resistance data for biters, spawners, and worms.
 - **`WikiArticles/Technologies.json`** - Factorio wiki API response for the Technologies page. Contains infinite research data, pricing formulas, and interesting breakpoints.
 
@@ -105,6 +106,11 @@ Processing Unit Productivity parameters:
 - `cap`: 300%
 - Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production + Electromagnetic
 
+Low Density Structure Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production + Metallurgic
+
 Machines and base productivity:
 - Foundry: 50% base, 4 module slots
 - Electric furnace: 0% base, 2 module slots
@@ -152,6 +158,14 @@ python3 factorio_productivity.py processing_unit
 # Level 30 / AM3+none: 300% (last cap)
 
 python3 factorio_productivity.py processing_unit --wiki > WikiArticles/ProcessingUnitProductivityResearch.txt
+
+python3 factorio_productivity.py low_density_structure
+# Breakpoints: [0, 10, 15, 19, 20, 21, 24, 25, 26, 30]
+# Level 10 / AM3+none: 100%
+# Level 15 / Foundry+LP3: 300% (first cap)
+# Level 30 / AM3+none: 300% (last cap)
+
+python3 factorio_productivity.py low_density_structure --wiki > WikiArticles/LowDensityStructureProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies

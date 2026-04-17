@@ -34,10 +34,12 @@ python3 factorio_productivity.py
 # Text output (single research)
 python3 factorio_productivity.py steel_plate
 python3 factorio_productivity.py processing_unit
+python3 factorio_productivity.py low_density_structure
 
 # Regenerate wiki articles
 python3 factorio_productivity.py steel_plate --wiki > WikiArticles/SteelPlateProductivityResearch.txt
 python3 factorio_productivity.py processing_unit --wiki > WikiArticles/ProcessingUnitProductivityResearch.txt
+python3 factorio_productivity.py low_density_structure --wiki > WikiArticles/LowDensityStructureProductivityResearch.txt
 ```
 
 ## Wiki Articles
@@ -48,6 +50,7 @@ python3 factorio_productivity.py processing_unit --wiki > WikiArticles/Processin
 | `WikiArticles/ArtilleryShellDamageResearch.txt` | Artillery shell damage (research) |
 | `WikiArticles/SteelPlateProductivityResearch.txt` | Steel plate productivity (research) - Thresholds section |
 | `WikiArticles/ProcessingUnitProductivityResearch.txt` | Processing unit productivity (research) - Thresholds section |
+| `WikiArticles/LowDensityStructureProductivityResearch.txt` | Low density structure productivity (research) - Thresholds section |
 
 ## Reference Data
 
