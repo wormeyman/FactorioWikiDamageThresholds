@@ -1,0 +1,92 @@
+== Thresholds ==
+The table below shows the total productivity bonus at key research levels for [[Low density structure productivity (research)]]{{SA}}, for each machine and module configuration. Applies to {{icon|low density structure|}} Low density structure ({{Icon|Assembling machine 3}}) and {{icon|Casting low density structure|}} Casting low density structure ({{icon|Foundry|space-age=yes}} Foundry) recipes. Productivity is capped at 300%; cells shown in '''bold''' indicate that the configuration has reached the cap at that level and will not improve further with additional research.
+
+<!-- Low Density Structure Productivity productivity thresholds -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="4" | {{Icon|Assembling machine 3}} Assembling machine 3 !! colspan="4" | {{Icon|Foundry|space-age=yes}} Foundry
+|-
+! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}} !! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|0}}
+| -
+| 0%
+| 40%
+| 60%
+| 100%
+| 50%
+| 90%
+| 110%
+| 150%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|10}}
+| 170k
+| 100%
+| 140%
+| 160%
+| 200%
+| 150%
+| 190%
+| 210%
+| 250%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|15}}
+| 1.311M
+| 150%
+| 190%
+| 210%
+| 250%
+| 200%
+| 240%
+| 260%
+| rowspan="8" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|19}}
+| 6.648M
+| 190%
+| 230%
+| 250%
+| 290%
+| 240%
+| 280%
+| rowspan="7" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|20}}
+| 9.973M
+| 200%
+| 240%
+| 260%
+| rowspan="6" | '''300%'''
+| 250%
+| 290%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|21}}
+| 14.961M
+| 210%
+| 250%
+| 270%
+| 260%
+| rowspan="5" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|24}}
+| 50.499M
+| 240%
+| 280%
+| rowspan="4" | '''300%'''
+| 290%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|25}}
+| 75.751M
+| 250%
+| 290%
+| rowspan="3" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|26}}
+| 113.627M
+| 260%
+| rowspan="2" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Low density structure productivity (research)|30}}+
+| 575.25M
+| '''300%'''
+|}

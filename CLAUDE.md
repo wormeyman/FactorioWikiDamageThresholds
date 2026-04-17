@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Maintenance Rules
+
+- When a PR is merged that adds a new research to `factorio_productivity.py` or a new tree to `factorio_thresholds.py`, update `README.md` to include the new text and `--wiki` commands.
+
+## Preferred Workflow
+
+When completing a development branch, always push and create a Pull Request (do not merge locally).
+
 ## Repository Overview
 
 This is a content repository for contributions to the [Factorio Wiki](https://wiki.factorio.com/). It contains:
@@ -10,8 +18,10 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`WikiArticles/ArtilleryShellDamageResearch.txt`** - MediaWiki markup source for the "Artillery shell damage (research)" wiki page
 - **`FactorioAsteroidDamageCalculator.xlsx`** - Excel export of a Google Sheet used to calculate asteroid damage thresholds. The Google Sheet is the source of truth; the .xlsx export is unreliable. The `Calculator` tab has a `Research Level Required` summary table (columns G-O, rows 15-38).
 - **`factorio_thresholds.py`** - Source of truth for damage threshold calculations. Covers Stronger Explosives (asteroids, biters, spawners), Physical Projectile (gun turret vs Small/Medium asteroids), Laser Weapons (laser turret vs Small/Medium asteroids), and Artillery Shell Damage (enemies). Run with `python3 factorio_thresholds.py [tree] [--wiki]`.
-- **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace, various module configs). Run with `python3 factorio_productivity.py [research] [--wiki]`.
+- **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace), Processing Unit Productivity (assembling machine 3 and electromagnetic plant), and Low Density Structure Productivity (assembling machine 3 and foundry), various module configs. Run with `python3 factorio_productivity.py [research] [--wiki]`.
 - **`WikiArticles/SteelPlateProductivityResearch.txt`** - MediaWiki markup source for the "Steel plate productivity (research)" wiki page thresholds section.
+- **`WikiArticles/ProcessingUnitProductivityResearch.txt`** - MediaWiki markup source for the "Processing unit productivity (research)" wiki page thresholds section.
+- **`WikiArticles/LowDensityStructureProductivityResearch.txt`** - MediaWiki markup source for the "Low density structure productivity (research)" wiki page thresholds section.
 - **`WikiArticles/enemies_wiki.json`** - Factorio wiki API response for the Enemies page. Extract wikitext via `data['parse']['wikitext']['*']`. Contains HP and resistance data for biters, spawners, and worms.
 - **`WikiArticles/Technologies.json`** - Factorio wiki API response for the Technologies page. Contains infinite research data, pricing formulas, and interesting breakpoints.
 
@@ -88,14 +98,28 @@ Capped at 300% (3.00). Minimum level to reach cap:
 min_level = ceil( (cap - base_prod - slots * module_bonus) / bonus_per_level )
 ```
 
+Cumulative research costs use the shared `_cumulative_costs(cost_base, max_lvl, multiplier=1.5)` helper. Cost per level N: `round(cost_base × multiplier^N)` packs.
+
 Steel Plate Productivity parameters:
 - `bonus_per_level`: 10% per level, max level 30
 - `cap`: 300%
-- Cumulative science cost per level N: `round(1000 × 1.5^N)` packs (Automation + Logistic + Chemical + Production)
+- Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production
+
+Processing Unit Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production + Electromagnetic
+
+Low Density Structure Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production + Metallurgic
 
 Machines and base productivity:
 - Foundry: 50% base, 4 module slots
 - Electric furnace: 0% base, 2 module slots
+- Assembling machine 3: 0% base, 4 module slots
+- Electromagnetic plant: 50% base, 5 module slots
 
 Module bonuses per slot:
 - No modules: 0%
@@ -130,6 +154,22 @@ python3 factorio_productivity.py steel_plate
 # Level 30 / EFurn+none: 300% (last cap)
 
 python3 factorio_productivity.py steel_plate --wiki > WikiArticles/SteelPlateProductivityResearch.txt
+
+python3 factorio_productivity.py processing_unit
+# Breakpoints: [0, 10, 13, 18, 20, 24, 25, 26, 30]
+# Level 10 / AM3+none: 100%
+# Level 13 / EM plant+LP3: 300% (first cap)
+# Level 30 / AM3+none: 300% (last cap)
+
+python3 factorio_productivity.py processing_unit --wiki > WikiArticles/ProcessingUnitProductivityResearch.txt
+
+python3 factorio_productivity.py low_density_structure
+# Breakpoints: [0, 10, 15, 19, 20, 21, 24, 25, 26, 30]
+# Level 10 / AM3+none: 100%
+# Level 15 / Foundry+LP3: 300% (first cap)
+# Level 30 / AM3+none: 300% (last cap)
+
+python3 factorio_productivity.py low_density_structure --wiki > WikiArticles/LowDensityStructureProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies
