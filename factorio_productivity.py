@@ -155,12 +155,11 @@ RESEARCHES = {
             "== Thresholds ==\n"
             "The table below shows the total productivity bonus at key research levels"
             " for [[Low density structure productivity (research)]]{{SA}}, for each machine and"
-            " module configuration. Applies to {{icon|low density structure|}} Low density structure"
-            " ({{Icon|Assembling machine 3}}) and {{icon|Casting low density structure|}} Casting"
-            " low density structure ({{icon|Foundry|space-age=yes}} Foundry) recipes."
-            " Productivity is capped at 300%; cells shown in '''bold''' indicate that the"
-            " configuration has reached the cap at that level and will not improve further"
-            " with additional research.\n"
+            " module configuration. Applies to the [[Low density structure]] recipe"
+            " (Assembling machine 3) and the [[Casting low density structure]] recipe"
+            " (Foundry). Productivity is capped at 300%; cells shown in '''bold''' indicate"
+            " that the configuration has reached the cap at that level and will not improve"
+            " further with additional research.\n"
         ),
         'notable_levels': [10, 20],
         'machines': ['Assembling machine 3', 'Foundry'],
