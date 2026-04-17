@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - When a PR is merged that adds a new research to `factorio_productivity.py` or a new tree to `factorio_thresholds.py`, update `README.md` to include the new text and `--wiki` commands.
 
+## Preferred Workflow
+
+When completing a development branch, always push and create a Pull Request (do not merge locally).
+
 ## Repository Overview
 
 This is a content repository for contributions to the [Factorio Wiki](https://wiki.factorio.com/). It contains:
