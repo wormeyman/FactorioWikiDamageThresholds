@@ -27,6 +27,7 @@ MACHINES = {
     'Chemical plant':        {'base_prod': 0.00, 'module_slots': 3},
     'Biochamber':            {'base_prod': 0.50, 'module_slots': 4},
     'Cryogenic plant':       {'base_prod': 0.00, 'module_slots': 8},
+    'Rocket silo':           {'base_prod': 0.00, 'module_slots': 4},
 }
 
 # ---------------------------------------------------------------------------
@@ -321,6 +322,7 @@ _MACHINE_ICONS = {
     'Chemical plant':        '{{Icon|Chemical plant}}',
     'Biochamber':            '{{Icon|Biochamber|space-age=yes}}',
     'Cryogenic plant':       '{{Icon|Cryogenic plant|space-age=yes}}',
+    'Rocket silo':           '{{Icon|Rocket silo}}',
 }
 
 # Icon markup for module config sub-headers (row 2 of 2-row header).
