@@ -37,6 +37,7 @@ python3 factorio_productivity.py processing_unit
 python3 factorio_productivity.py low_density_structure
 python3 factorio_productivity.py plastic_bar
 python3 factorio_productivity.py rocket_fuel
+python3 factorio_productivity.py rocket_part
 
 # Regenerate wiki articles
 python3 factorio_productivity.py steel_plate --wiki > WikiArticles/SteelPlateProductivityResearch.txt
@@ -44,6 +45,7 @@ python3 factorio_productivity.py processing_unit --wiki > WikiArticles/Processin
 python3 factorio_productivity.py low_density_structure --wiki > WikiArticles/LowDensityStructureProductivityResearch.txt
 python3 factorio_productivity.py plastic_bar --wiki > WikiArticles/PlasticBarProductivityResearch.txt
 python3 factorio_productivity.py rocket_fuel --wiki > WikiArticles/RocketFuelProductivityResearch.txt
+python3 factorio_productivity.py rocket_part --wiki > WikiArticles/RocketPartProductivityResearch.txt
 ```
 
 ## Wiki Articles
@@ -57,6 +59,7 @@ python3 factorio_productivity.py rocket_fuel --wiki > WikiArticles/RocketFuelPro
 | `WikiArticles/LowDensityStructureProductivityResearch.txt` | Low density structure productivity (research) - Thresholds section |
 | `WikiArticles/PlasticBarProductivityResearch.txt` | Plastic bar productivity (research) - Thresholds section |
 | `WikiArticles/RocketFuelProductivityResearch.txt` | Rocket fuel productivity (research) - Thresholds section |
+| `WikiArticles/RocketPartProductivityResearch.txt` | Rocket part productivity (research) - Thresholds section |
 
 ## Reference Data
 
