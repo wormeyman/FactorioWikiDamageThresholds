@@ -99,10 +99,106 @@ def print_text() -> None:
             print(row)
 
 
+_MINER_ICONS = {
+    'Electric mining drill': '{{Icon|Electric mining drill}}',
+    'Big mining drill':      '{{Icon|Big mining drill|space-age=yes}}',
+}
+
+_BELT_ICONS = {
+    'Transport belt':         '{{Icon|Transport belt}}',
+    'Fast transport belt':    '{{Icon|Fast transport belt}}',
+    'Express transport belt': '{{Icon|Express transport belt}}',
+    'Turbo transport belt':   '{{Icon|Turbo transport belt|space-age=yes}}',
+}
+
+
+def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
+    """Emit a single MediaWiki wikitable for one belt type."""
+    n_miners = len(MINERS)
+    n_levels = len(LEVELS)
+    sa_tag = '{{SA}}' if sa else ''
+    belt_icon = _BELT_ICONS[belt_name]
+    emd_icon = _MINER_ICONS['Electric mining drill']
+    bmd_icon = _MINER_ICONS['Big mining drill']
+
+    print(f'=== {belt_icon} {belt_name}{sa_tag} ===')
+    print(f'<!-- Mining productivity thresholds: {belt_name} -->')
+    print('{| class="wikitable" style="text-align:center;"')
+
+    # 2-row header: EMD gets rowspan=2 (single config), BMD gets colspan=2
+    print(
+        f'! rowspan="2" | Level'
+        f' !! rowspan="2" | Cumulative<br>research cost'
+        f' !! rowspan="2" | {emd_icon} Electric mining drill<br>No modules'
+        f' !! colspan="2" | {bmd_icon} Big mining drill'
+    )
+    print('|-')
+    print('! No modules !! No modules +<br>quad stacking')
+    print('|-')
+
+    # Precompute all values
+    col_values = [
+        [miners_needed(lane_speed, base_speed, lvl, stacking) for lvl in LEVELS]
+        for _, base_speed, stacking in MINERS
+    ]
+
+    # Floor = value at level 110 (last row); rowspan starts at first row reaching it
+    floor_row = []
+    for col in col_values:
+        floor_val = col[-1]
+        floor_row.append(next(ri for ri, v in enumerate(col) if v == floor_val))
+
+    floored = [False] * n_miners
+
+    for ri, lvl in enumerate(LEVELS):
+        is_last = (ri == n_levels - 1)
+        lvl_cell = f'{{{{Icontech|{TECH_NAME}|{lvl}}}}}' + ('+' if is_last else '')
+        cost_cell = cumulative_cost(lvl)
+
+        print('|- style="vertical-align:top;"')
+        print(f'! style="vertical-align:middle;" | {lvl_cell}')
+        print(f'| {cost_cell}')
+
+        for mi in range(n_miners):
+            if floored[mi]:
+                continue  # covered by rowspan from first floor row
+
+            val = col_values[mi][ri]
+            if ri == floor_row[mi]:
+                floored[mi] = True
+                rows_remaining = n_levels - ri
+                cell = f"'''{val}'''"
+                if rows_remaining > 1:
+                    print(f'| rowspan="{rows_remaining}" | {cell}')
+                else:
+                    print(f'| {cell}')
+            else:
+                print(f'| {val}')
+
+    print('|}')
+    print()
+
+
+def print_wiki() -> None:
+    """Emit the full MediaWiki article section for all belt types."""
+    print('== Thresholds ==')
+    print(
+        'The table below shows the number of mining drills needed to fully saturate'
+        ' both lanes of each belt type at key [[Mining productivity (research)]]{{SA}} levels.'
+        ' Miners deposit ore on one side of the belt only; values shown are total drills'
+        ' for both sides. The quad stacking column requires the belt stacking research'
+        ' from [[Gleba]] and shows drills needed to fill a belt whose lane capacity'
+        ' is 4\u00d7 higher; the miner\'s output speed is unchanged.'
+    )
+    print()
+    for belt_name, lane_speed, sa in BELTS:
+        print_wiki_table(belt_name, lane_speed, sa)
+
+
 if __name__ == '__main__':
     args = sys.argv[1:]
     wiki = '--wiki' in args
     if wiki:
-        print('(wiki output not yet implemented)')
+        print_wiki()
     else:
         print_text()
