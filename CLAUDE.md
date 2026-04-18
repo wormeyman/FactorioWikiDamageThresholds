@@ -123,6 +123,13 @@ Plastic Bar Productivity parameters:
 - Machines: Chemical plant, Biochamber, Cryogenic plant (column order)
 - Applies to [[Plastic bar]] recipe (all 3 machines) and [[Plastic bar#Alternative recipes|Bioplastic]] recipe (Biochamber only)
 
+Rocket Fuel Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cost: `_cumulative_costs(1000, 30)` - packs: Automation + Logistic + Chemical + Production + Agricultural
+- Machines: Assembling machine 3, Biochamber, Cryogenic plant (column order)
+- Applies to [[Rocket fuel]] recipe (AM3), [[Rocket fuel#Alternative recipes|Rocket fuel from jelly]] recipe (Biochamber only), and [[Rocket fuel#Alternative recipes|Ammonia rocket fuel]] recipe (Cryogenic plant only)
+
 Machines and base productivity:
 - Foundry: 50% base, 4 module slots
 - Electric furnace: 0% base, 2 module slots
@@ -191,6 +198,15 @@ python3 factorio_productivity.py plastic_bar
 # Level 30 / Chemical+none: 300% (last cap)
 
 python3 factorio_productivity.py plastic_bar --wiki > WikiArticles/PlasticBarProductivityResearch.txt
+
+python3 factorio_productivity.py rocket_fuel
+# Breakpoints: [0, 10, 15, 18, 19, 20, 21, 22, 24, 25, 26, 30]
+# Level 10 / Cryogenic+LP3: 300% (first cap)
+# Level 20 / AM3+LP3: 300%
+# Level 25 / Biochamber+none: 300%
+# Level 30 / AM3+none: 300% (last cap)
+
+python3 factorio_productivity.py rocket_fuel --wiki > WikiArticles/RocketFuelProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies
