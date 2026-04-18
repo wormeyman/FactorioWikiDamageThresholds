@@ -1,0 +1,316 @@
+== Thresholds ==
+The table below shows the number of mining drills needed to fully saturate both lanes of each belt type at key [[Mining productivity (research)]]{{SA}} levels. Miners deposit ore on one side of the belt only; values shown are total drills for both sides. The quad stacking column requires the belt stacking research from [[Gleba]] and shows drills needed to fill a belt whose lane capacity is 4× higher; the miner's output speed is unchanged.
+
+=== {{Icon|Transport belt}} Transport belt ===
+<!-- Mining productivity thresholds: Transport belt -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+|-
+! No modules !! No modules +<br>quad stacking
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
+| -
+| 30
+| 6
+| 24
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
+| 36.75k
+| 15
+| 3
+| 12
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
+| 171.75k
+| 10
+| 2
+| 8
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
+| 406.75k
+| 8
+| 2
+| 6
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
+| 741.75k
+| 6
+| 2
+| 5
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
+| 1.177M
+| 5
+| rowspan="7" | '''1'''
+| 4
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
+| 1.712M
+| 5
+| 4
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
+| 2.347M
+| 4
+| 3
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
+| 3.082M
+| 4
+| 3
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
+| 3.917M
+| rowspan="3" | '''3'''
+| 3
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
+| 4.852M
+| 3
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
+| 5.887M
+| '''2'''
+|}
+
+=== {{Icon|Fast transport belt}} Fast transport belt ===
+<!-- Mining productivity thresholds: Fast transport belt -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+|-
+! No modules !! No modules +<br>quad stacking
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
+| -
+| 60
+| 12
+| 48
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
+| 36.75k
+| 30
+| 6
+| 24
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
+| 171.75k
+| 20
+| 4
+| 16
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
+| 406.75k
+| 15
+| 3
+| 12
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
+| 741.75k
+| 12
+| 3
+| 10
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
+| 1.177M
+| 10
+| 2
+| 8
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
+| 1.712M
+| 9
+| 2
+| 7
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
+| 2.347M
+| 8
+| 2
+| 6
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
+| 3.082M
+| 7
+| 2
+| 6
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
+| 3.917M
+| 6
+| 2
+| 5
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
+| 4.852M
+| 6
+| 2
+| 5
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
+| 5.887M
+| '''5'''
+| '''1'''
+| '''4'''
+|}
+
+=== {{Icon|Express transport belt}} Express transport belt ===
+<!-- Mining productivity thresholds: Express transport belt -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+|-
+! No modules !! No modules +<br>quad stacking
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
+| -
+| 90
+| 18
+| 72
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
+| 36.75k
+| 45
+| 9
+| 36
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
+| 171.75k
+| 30
+| 6
+| 24
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
+| 406.75k
+| 23
+| 5
+| 18
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
+| 741.75k
+| 18
+| 4
+| 15
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
+| 1.177M
+| 15
+| 3
+| 12
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
+| 1.712M
+| 13
+| 3
+| 11
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
+| 2.347M
+| 12
+| 3
+| 9
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
+| 3.082M
+| 10
+| rowspan="4" | '''2'''
+| 8
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
+| 3.917M
+| 9
+| 8
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
+| 4.852M
+| 9
+| 7
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
+| 5.887M
+| '''8'''
+| '''6'''
+|}
+
+=== {{Icon|Turbo transport belt|space-age=yes}} Turbo transport belt{{SA}} ===
+<!-- Mining productivity thresholds: Turbo transport belt -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+|-
+! No modules !! No modules +<br>quad stacking
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
+| -
+| 120
+| 24
+| 96
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
+| 36.75k
+| 60
+| 12
+| 48
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
+| 171.75k
+| 40
+| 8
+| 32
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
+| 406.75k
+| 30
+| 6
+| 24
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
+| 741.75k
+| 24
+| 5
+| 20
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
+| 1.177M
+| 20
+| 4
+| 16
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
+| 1.712M
+| 18
+| 4
+| 14
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
+| 2.347M
+| 15
+| 3
+| 12
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
+| 3.082M
+| 14
+| 3
+| 11
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
+| 3.917M
+| 12
+| 3
+| 10
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
+| 4.852M
+| 11
+| 3
+| 9
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
+| 5.887M
+| '''10'''
+| '''2'''
+| '''8'''
+|}
+
