@@ -130,6 +130,13 @@ Rocket Fuel Productivity parameters:
 - Machines: Assembling machine 3, Biochamber, Cryogenic plant (column order)
 - Applies to [[Rocket fuel]] recipe (AM3), [[Rocket fuel#Alternative recipes|Rocket fuel from jelly]] recipe (Biochamber only), and [[Rocket fuel#Alternative recipes|Ammonia rocket fuel]] recipe (Cryogenic plant only)
 
+Rocket Part Productivity parameters:
+- `bonus_per_level`: 10% per level, max level 30
+- `cap`: 300%
+- Cost: `_cumulative_costs(2000, 30)` - packs: Automation + Logistic + Chemical + Production + Cryogenic
+- Machines: Rocket silo (column order)
+- Applies to [[Rocket part]] recipe (Rocket silo)
+
 Machines and base productivity:
 - Foundry: 50% base, 4 module slots
 - Electric furnace: 0% base, 2 module slots
@@ -138,6 +145,7 @@ Machines and base productivity:
 - Chemical plant: 0% base, 3 module slots
 - Biochamber: 50% base, 4 module slots
 - Cryogenic plant: 0% base, 8 module slots
+- Rocket silo: 0% base, 4 module slots
 
 Module bonuses per slot:
 - No modules: 0%
@@ -207,6 +215,13 @@ python3 factorio_productivity.py rocket_fuel
 # Level 30 / AM3+none: 300% (last cap)
 
 python3 factorio_productivity.py rocket_fuel --wiki > WikiArticles/RocketFuelProductivityResearch.txt
+
+python3 factorio_productivity.py rocket_part
+# Breakpoints: [0, 10, 20, 24, 26, 30]
+# Level 20 / Rocket silo+LP3: 300% (first cap)
+# Level 30 / Rocket silo+none: 300% (last cap)
+
+python3 factorio_productivity.py rocket_part --wiki > WikiArticles/RocketPartProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies

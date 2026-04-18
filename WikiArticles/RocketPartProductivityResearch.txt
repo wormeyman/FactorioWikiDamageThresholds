@@ -1,0 +1,46 @@
+== Thresholds ==
+The table below shows the total productivity bonus at key research levels for [[Rocket part productivity (research)]]{{SA}}, for each module configuration. Applies to the [[Rocket part]] recipe (Rocket silo). Productivity is capped at 300%; cells shown in '''bold''' indicate that the configuration has reached the cap at that level and will not improve further with additional research.
+
+<!-- Rocket Part Productivity productivity thresholds -->
+{| class="wikitable" style="text-align:center;"
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="4" | {{Icon|Rocket silo}} Rocket silo
+|-
+! - !! 4× {{Icon|Productivity module 3}} !! 4× {{Icon|productivity_module_2|[[File:quality_legendary.png|Legendary|16px]]}} !! 4× {{Icon|productivity_module_3|[[File:quality_legendary.png|Legendary|16px]]}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|0}}
+| -
+| 0%
+| 40%
+| 60%
+| 100%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|10}}
+| 339.99k
+| 100%
+| 140%
+| 160%
+| 200%
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|20}}
+| 19.946M
+| 200%
+| 240%
+| 260%
+| rowspan="4" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|24}}
+| 100.999M
+| 240%
+| 280%
+| rowspan="3" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|26}}
+| 227.255M
+| 260%
+| rowspan="2" | '''300%'''
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Rocket part productivity (research)|30}}+
+| 1.151G
+| '''300%'''
+|}
