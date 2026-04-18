@@ -11,67 +11,67 @@ The table below shows the number of mining drills needed to fully saturate both 
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
 | -
-| 30
-| 6
-| 24
+| {{Icon|Electric mining drill|30}}
+| {{Icon|Big mining drill|6|space-age=yes}}
+| {{Icon|Big mining drill|24|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
 | 36.75k
-| 15
-| 3
-| 12
+| {{Icon|Electric mining drill|15}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|12|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
 | 171.75k
-| 10
-| 2
-| 8
+| {{Icon|Electric mining drill|10}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|8|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
 | 406.75k
-| 8
-| 2
-| 6
+| {{Icon|Electric mining drill|8}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|6|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
 | 741.75k
-| 6
-| 2
-| 5
+| {{Icon|Electric mining drill|6}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|5|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
 | 1.177M
-| 5
-| rowspan="7" | '''1'''
-| 4
+| {{Icon|Electric mining drill|5}}
+| rowspan="7" | '''{{Icon|Big mining drill|1|space-age=yes}}'''
+| {{Icon|Big mining drill|4|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
 | 1.712M
-| 5
-| 4
+| {{Icon|Electric mining drill|5}}
+| {{Icon|Big mining drill|4|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
 | 2.347M
-| 4
-| 3
+| {{Icon|Electric mining drill|4}}
+| {{Icon|Big mining drill|3|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
 | 3.082M
-| 4
-| 3
+| {{Icon|Electric mining drill|4}}
+| {{Icon|Big mining drill|3|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
 | 3.917M
-| rowspan="3" | '''3'''
-| 3
+| rowspan="3" | '''{{Icon|Electric mining drill|3}}'''
+| {{Icon|Big mining drill|3|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
 | 4.852M
-| 3
+| {{Icon|Big mining drill|3|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
 | 5.887M
-| '''2'''
+| '''{{Icon|Big mining drill|2|space-age=yes}}'''
 |}
 
 === {{Icon|Fast transport belt}} Fast transport belt ===
@@ -84,75 +84,75 @@ The table below shows the number of mining drills needed to fully saturate both 
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
 | -
-| 60
-| 12
-| 48
+| {{Icon|Electric mining drill|60}}
+| {{Icon|Big mining drill|12|space-age=yes}}
+| {{Icon|Big mining drill|48|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
 | 36.75k
-| 30
-| 6
-| 24
+| {{Icon|Electric mining drill|30}}
+| {{Icon|Big mining drill|6|space-age=yes}}
+| {{Icon|Big mining drill|24|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
 | 171.75k
-| 20
-| 4
-| 16
+| {{Icon|Electric mining drill|20}}
+| {{Icon|Big mining drill|4|space-age=yes}}
+| {{Icon|Big mining drill|16|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
 | 406.75k
-| 15
-| 3
-| 12
+| {{Icon|Electric mining drill|15}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|12|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
 | 741.75k
-| 12
-| 3
-| 10
+| {{Icon|Electric mining drill|12}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|10|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
 | 1.177M
-| 10
-| 2
-| 8
+| {{Icon|Electric mining drill|10}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|8|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
 | 1.712M
-| 9
-| 2
-| 7
+| {{Icon|Electric mining drill|9}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|7|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
 | 2.347M
-| 8
-| 2
-| 6
+| {{Icon|Electric mining drill|8}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|6|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
 | 3.082M
-| 7
-| 2
-| 6
+| {{Icon|Electric mining drill|7}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|6|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
 | 3.917M
-| 6
-| 2
-| 5
+| {{Icon|Electric mining drill|6}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|5|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
 | 4.852M
-| 6
-| 2
-| 5
+| {{Icon|Electric mining drill|6}}
+| {{Icon|Big mining drill|2|space-age=yes}}
+| {{Icon|Big mining drill|5|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
 | 5.887M
-| '''5'''
-| '''1'''
-| '''4'''
+| '''{{Icon|Electric mining drill|5}}'''
+| '''{{Icon|Big mining drill|1|space-age=yes}}'''
+| '''{{Icon|Big mining drill|4|space-age=yes}}'''
 |}
 
 === {{Icon|Express transport belt}} Express transport belt ===
@@ -165,72 +165,72 @@ The table below shows the number of mining drills needed to fully saturate both 
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
 | -
-| 90
-| 18
-| 72
+| {{Icon|Electric mining drill|90}}
+| {{Icon|Big mining drill|18|space-age=yes}}
+| {{Icon|Big mining drill|72|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
 | 36.75k
-| 45
-| 9
-| 36
+| {{Icon|Electric mining drill|45}}
+| {{Icon|Big mining drill|9|space-age=yes}}
+| {{Icon|Big mining drill|36|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
 | 171.75k
-| 30
-| 6
-| 24
+| {{Icon|Electric mining drill|30}}
+| {{Icon|Big mining drill|6|space-age=yes}}
+| {{Icon|Big mining drill|24|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
 | 406.75k
-| 23
-| 5
-| 18
+| {{Icon|Electric mining drill|23}}
+| {{Icon|Big mining drill|5|space-age=yes}}
+| {{Icon|Big mining drill|18|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
 | 741.75k
-| 18
-| 4
-| 15
+| {{Icon|Electric mining drill|18}}
+| {{Icon|Big mining drill|4|space-age=yes}}
+| {{Icon|Big mining drill|15|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
 | 1.177M
-| 15
-| 3
-| 12
+| {{Icon|Electric mining drill|15}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|12|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
 | 1.712M
-| 13
-| 3
-| 11
+| {{Icon|Electric mining drill|13}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|11|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
 | 2.347M
-| 12
-| 3
-| 9
+| {{Icon|Electric mining drill|12}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|9|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
 | 3.082M
-| 10
-| rowspan="4" | '''2'''
-| 8
+| {{Icon|Electric mining drill|10}}
+| rowspan="4" | '''{{Icon|Big mining drill|2|space-age=yes}}'''
+| {{Icon|Big mining drill|8|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
 | 3.917M
-| 9
-| 8
+| {{Icon|Electric mining drill|9}}
+| {{Icon|Big mining drill|8|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
 | 4.852M
-| 9
-| 7
+| {{Icon|Electric mining drill|9}}
+| {{Icon|Big mining drill|7|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
 | 5.887M
-| '''8'''
-| '''6'''
+| '''{{Icon|Electric mining drill|8}}'''
+| '''{{Icon|Big mining drill|6|space-age=yes}}'''
 |}
 
 === {{Icon|Turbo transport belt|space-age=yes}} Turbo transport belt{{SA}} ===
@@ -243,74 +243,74 @@ The table below shows the number of mining drills needed to fully saturate both 
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|0}}
 | -
-| 120
-| 24
-| 96
+| {{Icon|Electric mining drill|120}}
+| {{Icon|Big mining drill|24|space-age=yes}}
+| {{Icon|Big mining drill|96|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|10}}
 | 36.75k
-| 60
-| 12
-| 48
+| {{Icon|Electric mining drill|60}}
+| {{Icon|Big mining drill|12|space-age=yes}}
+| {{Icon|Big mining drill|48|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
 | 171.75k
-| 40
-| 8
-| 32
+| {{Icon|Electric mining drill|40}}
+| {{Icon|Big mining drill|8|space-age=yes}}
+| {{Icon|Big mining drill|32|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|30}}
 | 406.75k
-| 30
-| 6
-| 24
+| {{Icon|Electric mining drill|30}}
+| {{Icon|Big mining drill|6|space-age=yes}}
+| {{Icon|Big mining drill|24|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|40}}
 | 741.75k
-| 24
-| 5
-| 20
+| {{Icon|Electric mining drill|24}}
+| {{Icon|Big mining drill|5|space-age=yes}}
+| {{Icon|Big mining drill|20|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
 | 1.177M
-| 20
-| 4
-| 16
+| {{Icon|Electric mining drill|20}}
+| {{Icon|Big mining drill|4|space-age=yes}}
+| {{Icon|Big mining drill|16|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|60}}
 | 1.712M
-| 18
-| 4
-| 14
+| {{Icon|Electric mining drill|18}}
+| {{Icon|Big mining drill|4|space-age=yes}}
+| {{Icon|Big mining drill|14|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|70}}
 | 2.347M
-| 15
-| 3
-| 12
+| {{Icon|Electric mining drill|15}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|12|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
 | 3.082M
-| 14
-| 3
-| 11
+| {{Icon|Electric mining drill|14}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|11|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|90}}
 | 3.917M
-| 12
-| 3
-| 10
+| {{Icon|Electric mining drill|12}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|10|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|100}}
 | 4.852M
-| 11
-| 3
-| 9
+| {{Icon|Electric mining drill|11}}
+| {{Icon|Big mining drill|3|space-age=yes}}
+| {{Icon|Big mining drill|9|space-age=yes}}
 |- style="vertical-align:top;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
 | 5.887M
-| '''10'''
-| '''2'''
-| '''8'''
+| '''{{Icon|Electric mining drill|10}}'''
+| '''{{Icon|Big mining drill|2|space-age=yes}}'''
+| '''{{Icon|Big mining drill|8|space-age=yes}}'''
 |}
 

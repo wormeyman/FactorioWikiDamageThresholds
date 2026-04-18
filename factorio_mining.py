@@ -104,6 +104,13 @@ _MINER_ICONS = {
     'Big mining drill':      '{{Icon|Big mining drill|space-age=yes}}',
 }
 
+
+def _miner_cell(mi: int, val: int) -> str:
+    name = MINERS[mi][0]
+    if name == 'Electric mining drill':
+        return f'{{{{Icon|Electric mining drill|{val}}}}}'
+    return f'{{{{Icon|Big mining drill|{val}|space-age=yes}}}}'
+
 _BELT_ICONS = {
     'Transport belt':         '{{Icon|Transport belt}}',
     'Fast transport belt':    '{{Icon|Fast transport belt}}',
@@ -164,16 +171,17 @@ def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
                 continue  # covered by rowspan from first floor row
 
             val = col_values[mi][ri]
+            icon = _miner_cell(mi, val)
             if ri == floor_row[mi]:
                 floored[mi] = True
                 rows_remaining = n_levels - ri
-                cell = f"'''{val}'''"
+                cell = f"'''{icon}'''"
                 if rows_remaining > 1:
                     print(f'| rowspan="{rows_remaining}" | {cell}')
                 else:
                     print(f'| {cell}')
             else:
-                print(f'| {val}')
+                print(f'| {icon}')
 
     print('|}')
     print()
