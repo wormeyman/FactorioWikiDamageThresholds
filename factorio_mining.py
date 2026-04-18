@@ -76,6 +76,15 @@ def miners_needed(lane_speed: float, base_speed: float, level: int,
     return math.ceil(effective_lane * 2 / effective_miner)
 
 
+def min_level_for_target(lane_speed: float, base_speed: float, target: int,
+                         stacking: bool = False) -> int | None:
+    """Minimum research level (0-110) where miners_needed <= target, or None."""
+    for lvl in range(0, 111):
+        if miners_needed(lane_speed, base_speed, lvl, stacking) <= target:
+            return lvl
+    return None
+
+
 def print_text() -> None:
     """Print plain-text tables for all belt types."""
     for belt_name, lane_speed, sa in BELTS:
@@ -83,6 +92,9 @@ def print_text() -> None:
         total = lane_speed * 2
         stacked_total = total * STACK_SIZE
         print(f'\n=== {belt_name}{sa_tag} ({total:.0f}/s, stacked {stacked_total:.0f}/s) ===')
+        bmd2 = min_level_for_target(lane_speed, 2.5, 2)
+        if bmd2 is not None:
+            print(f'  → 2 Big mining drills (no stacking) first at level {bmd2} (cost: {cumulative_cost(bmd2)})')
         headers = [
             'EMD / No modules',
             'BMD / No modules',
@@ -121,12 +133,15 @@ _BELT_ICONS = {
 
 def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
     """Emit a single MediaWiki wikitable for one belt type."""
-    n_miners = len(MINERS)
-    n_levels = len(LEVELS)
     sa_tag = '{{SA}}' if sa else ''
     belt_icon = _BELT_ICONS[belt_name]
     emd_icon = _MINER_ICONS['Electric mining drill']
     bmd_icon = _MINER_ICONS['Big mining drill']
+
+    bmd2_level = min_level_for_target(lane_speed, 2.5, 2)
+    table_levels = sorted(set(LEVELS) | ({bmd2_level} if bmd2_level is not None else set()))
+    n_miners = len(MINERS)
+    n_levels = len(table_levels)
 
     print(f'=== {belt_icon} {belt_name}{sa_tag} ===')
     print(f'<!-- Mining productivity thresholds: {belt_name} -->')
@@ -145,11 +160,11 @@ def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
 
     # Precompute all values
     col_values = [
-        [miners_needed(lane_speed, base_speed, lvl, stacking) for lvl in LEVELS]
+        [miners_needed(lane_speed, base_speed, lvl, stacking) for lvl in table_levels]
         for _, base_speed, stacking in MINERS
     ]
 
-    # Floor = value at level 110 (last row); rowspan starts at first row reaching it
+    # Floor = value at last level; rowspan starts at first row reaching it
     floor_row = []
     for col in col_values:
         floor_val = col[-1]
@@ -157,12 +172,16 @@ def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
 
     floored = [False] * n_miners
 
-    for ri, lvl in enumerate(LEVELS):
+    for ri, lvl in enumerate(table_levels):
         is_last = (ri == n_levels - 1)
+        is_threshold = (lvl == bmd2_level)
         lvl_cell = f'{{{{Icontech|{TECH_NAME}|{lvl}}}}}' + ('+' if is_last else '')
         cost_cell = cumulative_cost(lvl)
 
-        print('|- style="vertical-align:top;"')
+        row_style = 'vertical-align:top;'
+        if is_threshold:
+            row_style += ' background:#dff0d8;'
+        print(f'|- style="{row_style}"')
         print(f'! style="vertical-align:middle;" | {lvl_cell}')
         print(f'| {cost_cell}')
 

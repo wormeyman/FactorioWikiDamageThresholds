@@ -20,7 +20,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 | {{Icon|Electric mining drill|15}}
 | {{Icon|Big mining drill|3|space-age=yes}}
 | {{Icon|Big mining drill|12|space-age=yes}}
-|- style="vertical-align:top;"
+|- style="vertical-align:top; background:#dff0d8;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|20}}
 | 171.75k
 | {{Icon|Electric mining drill|10}}
@@ -111,7 +111,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 | {{Icon|Electric mining drill|12}}
 | {{Icon|Big mining drill|3|space-age=yes}}
 | {{Icon|Big mining drill|10|space-age=yes}}
-|- style="vertical-align:top;"
+|- style="vertical-align:top; background:#dff0d8;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|50}}
 | 1.177M
 | {{Icon|Electric mining drill|10}}
@@ -210,7 +210,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 | {{Icon|Electric mining drill|12}}
 | {{Icon|Big mining drill|3|space-age=yes}}
 | {{Icon|Big mining drill|9|space-age=yes}}
-|- style="vertical-align:top;"
+|- style="vertical-align:top; background:#dff0d8;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|80}}
 | 3.082M
 | {{Icon|Electric mining drill|10}}
@@ -306,7 +306,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 | {{Icon|Electric mining drill|11}}
 | {{Icon|Big mining drill|3|space-age=yes}}
 | {{Icon|Big mining drill|9|space-age=yes}}
-|- style="vertical-align:top;"
+|- style="vertical-align:top; background:#dff0d8;"
 ! style="vertical-align:middle;" | {{Icontech|Mining productivity (research)|110}}+
 | 5.887M
 | '''{{Icon|Electric mining drill|10}}'''
