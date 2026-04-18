@@ -48,6 +48,18 @@ python3 factorio_productivity.py rocket_fuel --wiki > WikiArticles/RocketFuelPro
 python3 factorio_productivity.py rocket_part --wiki > WikiArticles/RocketPartProductivityResearch.txt
 ```
 
+### `factorio_mining.py` - Mining productivity threshold tables
+
+Shows how many mining drills are needed to fully saturate each belt type at each research level.
+
+```bash
+# Text output
+python3 factorio_mining.py
+
+# Regenerate wiki article
+python3 factorio_mining.py --wiki > WikiArticles/MiningProductivityResearch.txt
+```
+
 ## Wiki Articles
 
 | File | Wiki page |
@@ -60,6 +72,7 @@ python3 factorio_productivity.py rocket_part --wiki > WikiArticles/RocketPartPro
 | `WikiArticles/PlasticBarProductivityResearch.txt` | Plastic bar productivity (research) - Thresholds section |
 | `WikiArticles/RocketFuelProductivityResearch.txt` | Rocket fuel productivity (research) - Thresholds section |
 | `WikiArticles/RocketPartProductivityResearch.txt` | Rocket part productivity (research) - Thresholds section |
+| `WikiArticles/MiningProductivityResearch.txt` | Mining productivity (research) - Thresholds section |
 
 ## Reference Data
 
