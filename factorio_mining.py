@@ -76,5 +76,33 @@ def miners_needed(lane_speed: float, base_speed: float, level: int,
     return math.ceil(effective_lane * 2 / effective_miner)
 
 
+def print_text() -> None:
+    """Print plain-text tables for all belt types."""
+    for belt_name, lane_speed, sa in BELTS:
+        sa_tag = ' [SA]' if sa else ''
+        total = lane_speed * 2
+        stacked_total = total * STACK_SIZE
+        print(f'\n=== {belt_name}{sa_tag} ({total:.0f}/s, stacked {stacked_total:.0f}/s) ===')
+        headers = [
+            'EMD / No modules',
+            'BMD / No modules',
+            'BMD / No modules + stack',
+        ]
+        w = 26
+        hdr = f"{'Level':>6}  {'Cost':>8}  " + '  '.join(f'{h[:w]:>{w}}' for h in headers)
+        print(hdr)
+        print('-' * len(hdr))
+        for lvl in LEVELS:
+            vals = [miners_needed(lane_speed, m[1], lvl, m[2]) for m in MINERS]
+            cost = cumulative_cost(lvl)
+            row = f'{lvl:>6}  {cost:>8}  ' + '  '.join(f'{v:>{w}}' for v in vals)
+            print(row)
+
+
 if __name__ == '__main__':
-    pass
+    args = sys.argv[1:]
+    wiki = '--wiki' in args
+    if wiki:
+        print('(wiki output not yet implemented)')
+    else:
+        print_text()
