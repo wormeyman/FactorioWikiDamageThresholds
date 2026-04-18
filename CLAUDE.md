@@ -19,6 +19,8 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`FactorioAsteroidDamageCalculator.xlsx`** - Excel export of a Google Sheet used to calculate asteroid damage thresholds. The Google Sheet is the source of truth; the .xlsx export is unreliable. The `Calculator` tab has a `Research Level Required` summary table (columns G-O, rows 15-38).
 - **`factorio_thresholds.py`** - Source of truth for damage threshold calculations. Covers Stronger Explosives (asteroids, biters, spawners), Physical Projectile (gun turret vs Small/Medium asteroids), Laser Weapons (laser turret vs Small/Medium asteroids), and Artillery Shell Damage (enemies). Run with `python3 factorio_thresholds.py [tree] [--wiki]`.
 - **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace), Processing Unit Productivity (assembling machine 3 and electromagnetic plant), Low Density Structure Productivity (assembling machine 3 and foundry), and Plastic Bar Productivity (chemical plant, biochamber, and cryogenic plant), various module configs. Run with `python3 factorio_productivity.py [research] [--wiki]`.
+- **`factorio_mining.py`** - Source of truth for mining productivity threshold calculations. Shows how many mining drills are needed to fully saturate each belt type (Transport, Fast transport, Express transport, Turbo transport) at each research level. Supports Electric mining drill and Big mining drill, with and without quad belt stacking (Gleba research). Run with `python3 factorio_mining.py [--wiki]`.
+- **`WikiArticles/MiningProductivityResearch.txt`** - MediaWiki markup source for the "Mining productivity (research)" wiki page thresholds section.
 - **`WikiArticles/SteelPlateProductivityResearch.txt`** - MediaWiki markup source for the "Steel plate productivity (research)" wiki page thresholds section.
 - **`WikiArticles/ProcessingUnitProductivityResearch.txt`** - MediaWiki markup source for the "Processing unit productivity (research)" wiki page thresholds section.
 - **`WikiArticles/LowDensityStructureProductivityResearch.txt`** - MediaWiki markup source for the "Low density structure productivity (research)" wiki page thresholds section.
@@ -222,6 +224,13 @@ python3 factorio_productivity.py rocket_part
 # Level 30 / Rocket silo+none: 300% (last cap)
 
 python3 factorio_productivity.py rocket_part --wiki > WikiArticles/RocketPartProductivityResearch.txt
+
+python3 factorio_mining.py
+# Level 0, Yellow belt, EMD: 30 drills
+# Level 110, Turbo belt, BMD: 2 drills
+# Level 110, Yellow belt, BMD+stacking: 2 drills
+
+python3 factorio_mining.py --wiki > WikiArticles/MiningProductivityResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies
