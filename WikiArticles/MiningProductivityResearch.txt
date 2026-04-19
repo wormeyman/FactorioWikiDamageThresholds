@@ -4,7 +4,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 === {{Icon|Transport belt}} Transport belt ===
 <!-- Mining productivity thresholds: Transport belt -->
 {| class="wikitable" style="text-align:center;"
-! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>[[Mining productivity (research)]]{{SA}}<br>cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
 |-
 ! No modules !! No modules +<br>quad stacking
 |-
@@ -91,7 +91,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 === {{Icon|Fast transport belt}} Fast transport belt ===
 <!-- Mining productivity thresholds: Fast transport belt -->
 {| class="wikitable" style="text-align:center;"
-! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>[[Mining productivity (research)]]{{SA}}<br>cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
 |-
 ! No modules !! No modules +<br>quad stacking
 |-
@@ -256,7 +256,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 === {{Icon|Express transport belt}} Express transport belt ===
 <!-- Mining productivity thresholds: Express transport belt -->
 {| class="wikitable" style="text-align:center;"
-! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>[[Mining productivity (research)]]{{SA}}<br>cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
 |-
 ! No modules !! No modules +<br>quad stacking
 |-
@@ -499,7 +499,7 @@ The table below shows the number of mining drills needed to fully saturate both 
 === {{Icon|Turbo transport belt|space-age=yes}} Turbo transport belt{{SA}} ===
 <!-- Mining productivity thresholds: Turbo transport belt -->
 {| class="wikitable" style="text-align:center;"
-! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>[[Mining productivity (research)]]{{SA}}<br>cost !! rowspan="2" | {{Icon|Electric mining drill}} Electric mining drill<br>No modules !! colspan="2" | {{Icon|Big mining drill|space-age=yes}} Big mining drill
 |-
 ! No modules !! No modules +<br>quad stacking
 |-

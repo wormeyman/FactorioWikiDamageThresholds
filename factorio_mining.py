@@ -157,7 +157,7 @@ def print_wiki_table(belt_name: str, lane_speed: float, sa: bool) -> None:
     # 2-row header: EMD gets rowspan=2 (single config), BMD gets colspan=2
     print(
         f'! rowspan="2" | Level'
-        f' !! rowspan="2" | Cumulative<br>research cost'
+        f' !! rowspan="2" | Cumulative<br>[[Mining productivity (research)]]{{{{SA}}}}<br>cost'
         f' !! rowspan="2" | {emd_icon} Electric mining drill<br>No modules'
         f' !! colspan="2" | {bmd_icon} Big mining drill'
     )
