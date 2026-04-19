@@ -216,8 +216,8 @@ def print_wiki() -> None:
         'The table below shows the number of mining drills needed to fully saturate'
         ' both lanes of each belt type at key [[Mining productivity (research)]]{{SA}} levels.'
         ' Miners deposit ore on one side of the belt only; values shown are total drills'
-        ' for both sides. The quad stacking column requires the belt stacking research'
-        ' from [[Gleba]] and shows drills needed to fill a belt whose lane capacity'
+        ' for both sides. The quad stacking column requires [[Transport belt capacity (research)]]{{SA}}'
+        ' and shows drills needed to fill a belt whose lane capacity'
         ' is 4\u00d7 higher; the miner\'s output speed is unchanged.'
     )
     print()
