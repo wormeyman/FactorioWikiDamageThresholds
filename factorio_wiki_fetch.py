@@ -24,7 +24,7 @@ OUTPUT_DIR = pathlib.Path(__file__).parent / "WikiArticles"
 
 
 def _resolve_page_name(arg: str) -> str:
-    if arg.startswith("http"):
+    if arg.startswith(("http://", "https://")):
         parsed = urllib.parse.urlparse(arg)
         return parsed.path.removeprefix("/")
     return arg
@@ -41,12 +41,17 @@ def _fetch_wikitext(page: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "factorio-wiki-fetch/1.0"})
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read().decode("utf-8"))
+            raw = resp.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
         print(f"Error: HTTP {exc.code} {exc.reason}", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as exc:
         print(f"Error: {exc.reason}", file=sys.stderr)
+        sys.exit(1)
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError as exc:
+        print(f"Error: response was not valid JSON: {exc}", file=sys.stderr)
         sys.exit(1)
 
 
