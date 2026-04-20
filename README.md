@@ -60,6 +60,21 @@ python3 factorio_mining.py
 python3 factorio_mining.py --wiki > WikiArticles/MiningProductivityResearch.txt
 ```
 
+### `factorio_wiki_fetch.py` - Wiki page downloader
+
+Downloads a Factorio Wiki page via the MediaWiki API and saves the JSON response to `WikiArticles/` for offline use.
+
+```bash
+# Fetch by full URL
+python3 factorio_wiki_fetch.py https://wiki.factorio.com/Enemies
+
+# Fetch by bare page name
+python3 factorio_wiki_fetch.py Technologies
+
+# Fetch with custom output filename
+python3 factorio_wiki_fetch.py Enemies --output enemies_wiki.json
+```
+
 ## Wiki Articles
 
 | File | Wiki page |
