@@ -15,6 +15,7 @@ import argparse
 import json
 import pathlib
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -25,7 +26,7 @@ OUTPUT_DIR = pathlib.Path(__file__).parent / "WikiArticles"
 def _resolve_page_name(arg: str) -> str:
     if arg.startswith("http"):
         parsed = urllib.parse.urlparse(arg)
-        return parsed.path.lstrip("/")
+        return parsed.path.removeprefix("/")
     return arg
 
 
@@ -38,11 +39,15 @@ def _fetch_wikitext(page: str) -> dict:
     })
     url = f"{WIKI_API}?{params}"
     req = urllib.request.Request(url, headers={"User-Agent": "factorio-wiki-fetch/1.0"})
-    with urllib.request.urlopen(req) as resp:
-        if resp.status != 200:
-            print(f"Error: HTTP {resp.status} fetching {url}", file=sys.stderr)
-            sys.exit(1)
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        print(f"Error: HTTP {exc.code} {exc.reason}", file=sys.stderr)
+        sys.exit(1)
+    except urllib.error.URLError as exc:
+        print(f"Error: {exc.reason}", file=sys.stderr)
+        sys.exit(1)
 
 
 def _parse_args() -> argparse.Namespace:
@@ -73,7 +78,7 @@ def main() -> None:
         print(f"Error: MediaWiki API error: {err.get('code', '?')}: {err.get('info', err)}", file=sys.stderr)
         sys.exit(1)
 
-    filename = args.output if args.output else f"{page_name}.json"
+    filename = pathlib.Path(args.output).name if args.output else f"{page_name.split('/')[-1]}.json"
     out_path = OUTPUT_DIR / filename
     out_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     print(f"Saved {out_path}")
