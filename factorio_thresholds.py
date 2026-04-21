@@ -64,6 +64,19 @@ EGG_RAFTS_MAX_EVO = {
     'Egg Raft': {'hp': 5000, 'resist': {'explosion': (5, 0.15), 'physical': (2, 0.15)}},
 }
 
+SPITTER_ENEMIES = {
+    'Behemoth Spitter': {'hp': 1500, 'resist': {'explosion': (0, 0.30)}},
+}
+
+GLEBA_ENEMIES = {
+    # hits_per_activation: Tesla bolt bounces between segments sharing one HP pool.
+    # Strafer: 3 reliable hits (5 legs but attacks from range ~31 tiles; only 3 in bounce range).
+    # Stomper: 5 reliable hits (5 legs, closes to melee so all legs within 12-tile bounce range).
+    # Confirmed by in-game testing at levels 6 and 10.
+    'Big Strafer': {'hp': 2400,  'resist': {'laser': (0, 0.50), 'physical': (2, 0.10)}, 'hits_per_activation': 3},
+    'Big Stomper': {'hp': 15000, 'resist': {'impact': (0, 0.80), 'laser': (0, 0.80), 'physical': (2, 0.50)}, 'hits_per_activation': 4},
+}
+
 # ---------------------------------------------------------------------------
 # Research multipliers
 # ---------------------------------------------------------------------------
@@ -268,6 +281,39 @@ def _asd_cumulative_costs(max_lvl: int = 50) -> dict:
     return result
 
 
+def ewd_mult(level: int) -> float:
+    """Electric Weapons Damage cumulative multiplier for Tesla turret.
+
+    Levels 0-2 grant no Tesla bonus (those levels only buff Destroyers).
+    Level 3: +70% cumulative. Level 4+: +70% per level.
+    mult = 1 + 0.70*(level - 2) for level >= 3.
+    """
+    if level < 3:
+        return 1.0
+    return 1.0 + 0.70 * (level - 2)
+
+
+def _ewd_cumulative_costs(max_lvl: int = 20) -> dict:
+    """Cumulative total science pack cost to REACH each electric weapons damage level.
+
+    Level 1: Auto+Log+Mil+Chem+Util × 250 (5 types).
+    Level 2: +Space × 500 (6 types).
+    Level 3+: +EM × 1000 × 2^(level-3) (7 types).
+    """
+    total = 0
+    result: dict = {0: '-'}
+    for lvl in range(1, max_lvl + 1):
+        if lvl == 1:
+            per_level = 5 * 250
+        elif lvl == 2:
+            per_level = 6 * 500
+        else:
+            per_level = 7 * 1000 * (2 ** (lvl - 3))
+        total += per_level
+        result[lvl] = _si(total)
+    return result
+
+
 TREES = {
     'stronger_explosives': {
         'name': 'Stronger Explosives',
@@ -360,6 +406,45 @@ TREES = {
             'Egg Raft':      '{{Icon|Egg_raft}}',
         },
     },
+    'electric_weapons_damage': {
+        'name': 'Electric Weapons Damage (Tesla turret vs enemies)',
+        'intro': (
+            "== Thresholds ==\n"
+            "''Note: The values in this table are approximate. The Tesla turret's chain lightning"
+            " bounces between nearby targets, so the number of hits per activation varies with"
+            " enemy positioning and movement.''\n"
+            "The table below shows the number of [[Tesla turret]]{{SA}} activations required"
+            " to destroy each enemy at each level of [[Electric weapons damage (research)]]{{SA}}."
+            " The Tesla turret fires a chain lightning bolt that bounces between nearby targets;"
+            " against multi-segment enemies (Big Strafer, Big Stomper) each activation can hit"
+            " multiple legs sharing one HP pool.\n"
+        ),
+        'mult_fn': ewd_mult,
+        'tech_name': 'Electric weapons damage (research)',
+        'cumulative_costs': _ewd_cumulative_costs(),
+        'caption': 'Activations required to destroy enemy',
+        # Big Stomper never reaches 1-shot within level 20 (~level 37 needed with 5 hits/activation).
+        # Cap at 20 to match the laser_weapons tree style.
+        'max_level': 20,
+        'weapons': [
+            ('Tesla turret', 120, 'electric', '{{Icon|Tesla turret}}', 'Tesla turret', 1),
+        ],
+        'target_groups': [
+            ('Enemies', {
+                'Behemoth Biter':  BITERS['Behemoth Biter'],
+                'Behemoth Spitter': SPITTER_ENEMIES['Behemoth Spitter'],
+                'Big Strafer': GLEBA_ENEMIES['Big Strafer'],
+                'Big Stomper': GLEBA_ENEMIES['Big Stomper'],
+            }, 1.0),
+        ],
+        'target_wiki_labels': {
+            'Behemoth Biter':  '{{Icon|Behemoth_biter}}',
+            'Behemoth Spitter': '{{Icon|Behemoth_spitter}}',
+            'Big Strafer': '{{Icon|Strafer_big}}',
+            'Big Stomper': '{{Icon|Stomper_big}}',
+        },
+        'note': "''Note: Big Stomper values are approximate. The Tesla bolt hits 3-5 of its 5 legs per activation depending on positioning; the table uses a 4-hit average. Actual activations may vary by ±2.''",
+    },
 }
 
 
@@ -386,19 +471,20 @@ def build_columns(tree: dict) -> list:
                 ]
                 resist = target['resist'].get(dmg_type, (0, 0.0))
                 cols.append({
-                    'group':          group_name,
-                    'target':         target_name,
-                    'weapon':         weapon_name,
-                    'label':          f'{target_name} / {weapon_name}',
-                    'hp':             target['hp'],
-                    'overkill':       overkill,
-                    'base_dmg':       base_dmg,
-                    'resist':         resist,
-                    'header_icon':    header_icon,
-                    'data_icon_name': data_icon_name,
-                    'magazine_size':  magazine_size,
-                    'round_per_hit':  tree.get('round_per_hit', False),
-                    'extra_resists':  extra_resists,
+                    'group':               group_name,
+                    'target':              target_name,
+                    'weapon':              weapon_name,
+                    'label':               f'{target_name} / {weapon_name}',
+                    'hp':                  target['hp'],
+                    'overkill':            overkill,
+                    'base_dmg':            base_dmg,
+                    'resist':              resist,
+                    'header_icon':         header_icon,
+                    'data_icon_name':      data_icon_name,
+                    'magazine_size':       magazine_size,
+                    'round_per_hit':       tree.get('round_per_hit', False),
+                    'extra_resists':       extra_resists,
+                    'hits_per_activation': target.get('hits_per_activation', 1),
                 })
     return cols
 
@@ -409,15 +495,23 @@ def _col_shots(col: dict, mult: float) -> int:
     If col['extra_resists'] is non-empty, sums all damage components per shot
     (e.g. artillery shell: 1000 physical + 1000 explosion). Otherwise falls
     through to shots_needed, preserving round_per_hit behaviour for gun turrets.
+
+    hits_per_activation > 1 scales effective damage per activation (e.g. Tesla
+    turret bouncing between segments of a segmented enemy).
     """
+    hits = col.get('hits_per_activation', 1)
     if col['extra_resists']:
         flat, pct = col['resist']
         total_dmg = max(col['base_dmg'] * mult - flat, 1.0) * (1.0 - pct)
         for base2, (flat2, pct2) in col['extra_resists']:
             total_dmg += max(base2 * mult - flat2, 1.0) * (1.0 - pct2)
+        total_dmg *= hits
         return math.ceil(col['hp'] * col['overkill'] / total_dmg - 1e-9)
-    return shots_needed(col['hp'], col['overkill'], col['base_dmg'], mult,
-                        col['resist'], col.get('round_per_hit', False))
+    flat, pct = col['resist']
+    dmg_eff = max(col['base_dmg'] * mult - flat, 1.0) * (1.0 - pct) * hits
+    if col.get('round_per_hit', False):
+        dmg_eff = max(math.floor(dmg_eff + 0.5), 1)
+    return math.ceil(col['hp'] * col['overkill'] / dmg_eff - 1e-9)
 
 
 def _col_display(col: dict, mult: float) -> int:
@@ -608,6 +702,8 @@ def print_wiki_table(tree: dict) -> None:
         next_change = my_bps[pos + 1]
         return sum(1 for b in breakpoints if lvl <= b < next_change)
 
+    if tree.get('intro'):
+        print(tree['intro'])
     print(f'<!-- {tree["name"]} damage thresholds -->')
     print('{| class="wikitable" style="text-align:center;"')
     n_weapons = len(tree['weapons'])
@@ -668,6 +764,8 @@ def print_wiki_table(tree: dict) -> None:
         _emit_force_rows(cols, tree['force_rows'], mult_fn,
                          cumulative_costs, tech_name)
         print('|}')
+        if note := tree.get('note'):
+            print(f'\n{note}')
         return
 
     # Data rows
@@ -723,6 +821,8 @@ def print_wiki_table(tree: dict) -> None:
                 print(f'| {cell_content}')
 
     print('|}')
+    if note := tree.get('note'):
+        print(f'\n{note}')
 
 
 # ---------------------------------------------------------------------------

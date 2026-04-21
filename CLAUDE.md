@@ -17,7 +17,7 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`WikiArticles/StrongerExplosivesResearch.txt`** - MediaWiki markup source for the "Stronger explosives (research)" wiki page
 - **`WikiArticles/ArtilleryShellDamageResearch.txt`** - MediaWiki markup source for the "Artillery shell damage (research)" wiki page
 - **`FactorioAsteroidDamageCalculator.xlsx`** - Excel export of a Google Sheet used to calculate asteroid damage thresholds. The Google Sheet is the source of truth; the .xlsx export is unreliable. The `Calculator` tab has a `Research Level Required` summary table (columns G-O, rows 15-38).
-- **`factorio_thresholds.py`** - Source of truth for damage threshold calculations. Covers Stronger Explosives (asteroids, biters, spawners), Physical Projectile (gun turret vs Small/Medium asteroids), Laser Weapons (laser turret vs Small/Medium asteroids), and Artillery Shell Damage (enemies). Run with `python3 factorio_thresholds.py [tree] [--wiki]`.
+- **`factorio_thresholds.py`** - Source of truth for damage threshold calculations. Covers Stronger Explosives (asteroids, biters, spawners), Physical Projectile (gun turret vs Small/Medium asteroids), Laser Weapons (laser turret vs Small/Medium asteroids), Artillery Shell Damage (enemies), and Electric Weapons Damage (Tesla turret vs enemies). Run with `python3 factorio_thresholds.py [tree] [--wiki]`.
 - **`factorio_productivity.py`** - Source of truth for productivity threshold calculations. Covers Steel Plate Productivity (foundry and electric furnace), Processing Unit Productivity (assembling machine 3 and electromagnetic plant), Low Density Structure Productivity (assembling machine 3 and foundry), and Plastic Bar Productivity (chemical plant, biochamber, and cryogenic plant), various module configs. Run with `python3 factorio_productivity.py [research] [--wiki]`.
 - **`factorio_mining.py`** - Source of truth for mining productivity threshold calculations. Shows how many mining drills are needed to fully saturate each belt type (Transport, Fast transport, Express transport, Turbo transport) at each research level. Supports Electric mining drill and Big mining drill, with and without quad belt stacking (Gleba research). Run with `python3 factorio_mining.py [--wiki]`.
 - **`factorio_wiki_fetch.py`** - Downloads a Factorio Wiki page via the MediaWiki API and saves the JSON response to `WikiArticles/` for offline use. Accepts a full wiki URL or bare page name. Run with `python3 factorio_wiki_fetch.py <url-or-page-name> [--output FILENAME]`.
@@ -26,6 +26,7 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`WikiArticles/ProcessingUnitProductivityResearch.txt`** - MediaWiki markup source for the "Processing unit productivity (research)" wiki page thresholds section.
 - **`WikiArticles/LowDensityStructureProductivityResearch.txt`** - MediaWiki markup source for the "Low density structure productivity (research)" wiki page thresholds section.
 - **`WikiArticles/PlasticBarProductivityResearch.txt`** - MediaWiki markup source for the "Plastic bar productivity (research)" wiki page thresholds section.
+- **`WikiArticles/ElectricWeaponsDamageResearch.txt`** - MediaWiki markup source for the "Electric weapons damage (research)" wiki page thresholds section.
 - **`WikiArticles/enemies_wiki.json`** - Factorio wiki API response for the Enemies page. Extract wikitext via `data['parse']['wikitext']['*']`. Contains HP and resistance data for biters, spawners, and worms.
 - **`WikiArticles/Technologies.json`** - Factorio wiki API response for the Technologies page. Contains infinite research data, pricing formulas, and interesting breakpoints.
 
@@ -74,6 +75,74 @@ Asteroid laser resistances (from Asteroids.json):
 - Big: 95%, Huge: 99% (not practical targets - excluded from table)
 
 Community rule: research level 12 with 20+ laser turrets is viable for routes with small and medium asteroids at normal platform travel speeds. Level 11 is the minimum to one-shot small asteroids. The table is capped at level 20; medium asteroids continue to decrease beyond that but never reach 1 activation.
+
+## Electric Weapons Damage Tree
+
+Tesla turret base damage: 120 electric per bolt. Damage type: electric. No overkill factor.
+
+Source: `data/factorioraw.json` → `beam["chain-tesla-turret-beam-bounce"].action.action_delivery.target_effects[1].damage.amount = 120`. Both the start beam and bounce beam deal 120 each.
+
+Chain mechanics (from `chain-active-trigger["chain-tesla-turret-chain"]`):
+- `max_jumps = 10`, `max_range_per_jump = 12` tiles, `jump_delay_ticks = 6`
+- `fork_chance = 0.05` (5% per jump at regular quality), `fork_chance_increase_per_quality_level = 0.05`
+
+Cumulative damage multiplier (`ewd_mult`):
+- Levels 0-2: 1.0 (those levels only buff Destroyers, not Tesla)
+- Level 3+: 1.0 + 0.70 × (level - 2)
+
+Research cost per level:
+- Level 1: Auto+Log+Mil+Chem+Util × 250 (5 types)
+- Level 2: +Space × 500 (6 types)
+- Level 3+: +EM × 1000 × 2^(level-3) (7 types)
+
+Segmented enemy mechanics - Tesla bolt bounces between segments sharing a single HP pool. Both Big Strafer and Big Stomper are `spider-unit` type (NOT `segmented_unit` - that is only for demolishers). Both have 5 legs each (`big-stomper-pentapod-leg` / `big-strafer-pentapod-leg`). Number of reliable hits per activation depends on how many legs are within 12-tile bounce range:
+
+| Enemy | HP | `hits_per_activation` | Wiki icon | Reason | Confirmed |
+|---|---|---|---|---|---|
+| Big Strafer | 2400 | 3 | `{{Icon|Strafer_big}}` | Attacks from range ~31 tiles; only 3 of 5 legs in bounce range | Level 10: always 2 shots, sometimes 1 |
+| Big Stomper | 15000 | 4 | `{{Icon|Stomper_big}}` | Closes to melee; all 5 legs in range but hit count varies 3-5; 4 is the conservative average | Level 6: 7 shots (4/4 tests, matches 5 hits); Lua counter shows 50% = 5 hits, 37% = 3 hits, 13% = 4 hits |
+
+Big Stomper has `healing_per_tick = 0.5` (30 HP/s). This introduces ~1 shot of variability at higher research levels. Table uses 4 hits/activation as a conservative average; wiki note warns of ±2 variability.
+
+Big Demolisher excluded: 300,000 HP, 24,000 HP/s regen, Electric 20/20% resistance, complex head/body segmentation. Table capped at level 20 (Big Stomper reaches 1-shot around level 37).
+
+Tree definition supports two optional output fields:
+- `intro`: heading + disclaimer/paragraph emitted before the wiki table (same pattern as `factorio_productivity.py`). Avoid `{{Icon|...}}` in prose - use plain wikilinks instead (renders as block-level div, breaks paragraph).
+- `note`: italic footnote emitted after the closing `|}`.
+
+In-game testing techniques:
+
+Make a selected entity indestructible before testing (prevents turret from being destroyed mid-test):
+```lua
+/c game.player.selected.destructible = false
+```
+
+Count hits per Tesla activation (groups events within 70 ticks as one activation; chain takes max 60 ticks, cooldown is 120 ticks):
+```lua
+/c local state = {}
+script.on_event(defines.events.on_entity_damaged, function(e)
+  local name = e.entity.name
+  -- add target entity names to check here
+  if name ~= "big-stomper-pentapod" and name ~= "big-strafer-pentapod" then return end
+  local t = game.tick
+  local s = state[name]
+  if not s then s = {hits=0, dmg=0, last_tick=-999, n=0}; state[name] = s end
+  if t - s.last_tick > 70 then
+    if s.hits > 0 then
+      s.n = s.n + 1
+      game.print(name.." shot "..s.n..": "..s.hits.." hits, total dmg="..s.dmg)
+    end
+    s.hits = 0; s.dmg = 0
+  end
+  s.hits = s.hits + 1
+  s.dmg = s.dmg + e.final_damage_amount
+  s.last_tick = t
+end)
+```
+
+Clear the event handler when done: `/c script.on_event(defines.events.on_entity_damaged, nil)`
+
+Choose a diagnostic research level where predicted shot counts differ clearly between hypotheses (level 6 worked well for Big Stomper: 7/9/11 shots for 5/4/3 hits/activation).
 
 ## General Damage Formula (biters, spawners)
 
@@ -232,6 +301,14 @@ python3 factorio_mining.py
 # Level 110, Yellow belt, BMD+stacking: 2 drills
 
 python3 factorio_mining.py --wiki > WikiArticles/MiningProductivityResearch.txt
+
+python3 factorio_thresholds.py electric_weapons_damage
+# Level 0-2: Behemoth Spitter = 13 shots (1500/120 = 12.5 → 13)
+# Level 3: Behemoth Spitter = 8 shots (1500/204 = 7.35 → 8)
+# Level 19: Behemoth Spitter = 1 shot
+# Level 20: Big Stomper = 10 shots (15000/1632 = 9.19 → 10)
+
+python3 factorio_thresholds.py electric_weapons_damage --wiki > WikiArticles/ElectricWeaponsDamageResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies

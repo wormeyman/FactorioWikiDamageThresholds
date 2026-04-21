@@ -1,0 +1,90 @@
+== Thresholds ==
+''Note: The values in this table are approximate. The Tesla turret's chain lightning bounces between nearby targets, so the number of hits per activation varies with enemy positioning and movement.''
+The table below shows the number of [[Tesla turret]]{{SA}} activations required to destroy each enemy at each level of [[Electric weapons damage (research)]]{{SA}}. The Tesla turret fires a chain lightning bolt that bounces between nearby targets; against multi-segment enemies (Big Strafer, Big Stomper) each activation can hit multiple legs sharing one HP pool.
+
+<!-- Electric Weapons Damage (Tesla turret vs enemies) damage thresholds -->
+{| class="wikitable" style="text-align:center;"
+! colspan="6" | Activations required to destroy enemy
+|-
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="1" | {{Icon|Behemoth_biter}} !! colspan="1" | {{Icon|Behemoth_spitter}} !! colspan="1" | {{Icon|Strafer_big}} !! colspan="1" | {{Icon|Stomper_big}}
+|-
+! {{Icon|Tesla turret}} !! {{Icon|Tesla turret}} !! {{Icon|Tesla turret}} !! {{Icon|Tesla turret}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|0}} to {{Icontech|Electric weapons damage (research)|2}}
+| -
+| {{Icon|Tesla turret|25}}
+| {{Icon|Tesla turret|13}}
+| {{Icon|Tesla turret|7}}
+| {{Icon|Tesla turret|32}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|3}}
+| 11.25k
+| {{Icon|Tesla turret|15}}
+| {{Icon|Tesla turret|8}}
+| {{Icon|Tesla turret|4}}
+| {{Icon|Tesla turret|19}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|4}}
+| 25.25k
+| {{Icon|Tesla turret|11}}
+| {{Icon|Tesla turret|6}}
+| rowspan="2" | {{Icon|Tesla turret|3}}
+| {{Icon|Tesla turret|14}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|5}}
+| 53.25k
+| {{Icon|Tesla turret|9}}
+| {{Icon|Tesla turret|5}}
+| {{Icon|Tesla turret|11}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|6}}
+| 109.25k
+| {{Icon|Tesla turret|7}}
+| {{Icon|Tesla turret|4}}
+| rowspan="5" | {{Icon|Tesla turret|2}}
+| {{Icon|Tesla turret|9}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|7}}
+| 221.25k
+| {{Icon|Tesla turret|6}}
+| rowspan="3" | {{Icon|Tesla turret|3}}
+| rowspan="2" | {{Icon|Tesla turret|7}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|8}}
+| 445.25k
+| rowspan="2" | {{Icon|Tesla turret|5}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|9}}
+| 893.25k
+| {{Icon|Tesla turret|6}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|10}}
+| 1.789M
+| rowspan="3" | {{Icon|Tesla turret|4}}
+| rowspan="5" | {{Icon|Tesla turret|2}}
+| rowspan="2" | {{Icon|Tesla turret|5}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|11}}
+| 3.581M
+| rowspan="5" | {{Icon|Tesla turret|1}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|12}}
+| 7.165M
+| rowspan="2" | {{Icon|Tesla turret|4}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|13}} to {{Icontech|Electric weapons damage (research)|15}}
+| 14.333M
+| rowspan="2" | {{Icon|Tesla turret|3}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|16}} to {{Icontech|Electric weapons damage (research)|18}}
+| 114.685M
+| rowspan="2" | {{Icon|Tesla turret|3}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Electric weapons damage (research)|19}} to {{Icontech|Electric weapons damage (research)|20}}+
+| 917.501M
+| {{Icon|Tesla turret|2}}
+| {{Icon|Tesla turret|1}}
+|}
+
+''Note: Big Stomper values are approximate. The Tesla bolt hits 3-5 of its 5 legs per activation depending on positioning; the table uses a 4-hit average. Actual activations may vary by ±2.''

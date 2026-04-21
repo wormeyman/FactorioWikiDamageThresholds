@@ -17,10 +17,12 @@ python3 factorio_thresholds.py stronger_explosives
 python3 factorio_thresholds.py laser_weapons
 python3 factorio_thresholds.py physical_projectile
 python3 factorio_thresholds.py artillery_shell_damage
+python3 factorio_thresholds.py electric_weapons_damage
 
 # Regenerate wiki articles
 python3 factorio_thresholds.py stronger_explosives --wiki > WikiArticles/StrongerExplosivesResearch.txt
 python3 factorio_thresholds.py artillery_shell_damage --wiki > WikiArticles/ArtilleryShellDamageResearch.txt
+python3 factorio_thresholds.py electric_weapons_damage --wiki > WikiArticles/ElectricWeaponsDamageResearch.txt
 ```
 
 ### `factorio_productivity.py` - Productivity threshold tables
@@ -81,6 +83,7 @@ python3 factorio_wiki_fetch.py Enemies --output enemies_wiki.json
 |------|-----------|
 | `WikiArticles/StrongerExplosivesResearch.txt` | Stronger explosives (research) |
 | `WikiArticles/ArtilleryShellDamageResearch.txt` | Artillery shell damage (research) |
+| `WikiArticles/ElectricWeaponsDamageResearch.txt` | Electric weapons damage (research) - Thresholds section |
 | `WikiArticles/SteelPlateProductivityResearch.txt` | Steel plate productivity (research) - Thresholds section |
 | `WikiArticles/ProcessingUnitProductivityResearch.txt` | Processing unit productivity (research) - Thresholds section |
 | `WikiArticles/LowDensityStructureProductivityResearch.txt` | Low density structure productivity (research) - Thresholds section |

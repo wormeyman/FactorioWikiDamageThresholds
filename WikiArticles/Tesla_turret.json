@@ -1,0 +1,9 @@
+{
+  "parse": {
+    "title": "Tesla turret",
+    "pageid": 49690,
+    "wikitext": {
+      "*": "{{Languages}}\n{{:Infobox:Tesla turret}}\n{{About/Space age}}\nThe '''tesla turret''' is a powerful turret which deals electric damage capable of hitting multiple enemies at once. \nThe tesla turret fires an electric bolt that can bounce to secondary enemies in an arcing chain. Hits temporarily stun enemies, slowing them down, which works well in combination with other turrets.\n\nUnlike the handheld [[tesla gun]], the tesla turret does '''not''' require [[tesla ammo]]. It only needs [[electricity]] to operate. It consumes 1 MW continuously. Each shot consumes 12 MJ of energy, so when firing at full speed, the turret pulls a total of 7 MW. These can be offset by using [[accumulator]]s (or [[Storage_tank#Usage_as_.22Energy-tank.22|steam storage]] and excess [[steam turbine]]s).\n\nMany larger enemies are segmented (demolishers, stompers and strafers); this means that they have different target entities that share a single pool of hit points. The tesla turret can be particularly effective against such enemies, as a single electric bolt can bounce between different segments of the same enemy.\n\nThe tesla turret is ineffective against [[asteroids]] as they all have 100% electric [[Damage#Resistance|resistance]].\n\n== History ==\n{{history|2.0.7|\n* Introduced in [[Space Age]]{{SA}} expansion.\n}}\n\n== See also ==\n* [[Fulgora]]{{SA}}\n* [[Laser turret]]\n\n{{CombatNav}}\n{{C|Defense}}"
+    }
+  }
+}
