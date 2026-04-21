@@ -485,6 +485,7 @@ def build_columns(tree: dict) -> list:
                     'round_per_hit':       tree.get('round_per_hit', False),
                     'extra_resists':       extra_resists,
                     'hits_per_activation': target.get('hits_per_activation', 1),
+                'units_per_shot':      tree.get('units_per_shot'),
                 })
     return cols
 
@@ -515,13 +516,18 @@ def _col_shots(col: dict, mult: float) -> int:
 
 
 def _col_display(col: dict, mult: float) -> int:
-    """Display units (magazines or single shots) needed to kill the target.
+    """Display units (magazines, single shots, or fluid units) to kill the target.
 
     For magazine weapons (magazine_size > 1) this is ceil(bullets / size).
-    Breakpoints and the table are built from display values so that rows
-    only split when the visible count changes, not on every bullet boundary.
+    For fluid weapons (units_per_shot set) this is ceil(shots * units_per_shot).
+    Breakpoints are built from display values so rows only split on visible changes.
     """
-    return math.ceil(_col_shots(col, mult) / col['magazine_size'])
+    shots = _col_shots(col, mult)
+    mags = math.ceil(shots / col['magazine_size'])
+    upc = col.get('units_per_shot')
+    if upc is not None:
+        return math.ceil(mags * upc)
+    return mags
 
 
 def find_max_level(tree: dict, cap: int = 500) -> int:
