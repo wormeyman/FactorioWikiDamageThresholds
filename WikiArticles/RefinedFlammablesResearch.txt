@@ -1,0 +1,154 @@
+<!-- Refined Flammables (flamethrower turret vs enemies) damage thresholds -->
+{| class="wikitable" style="text-align:center;"
+! colspan="6" | Fluid units required to destroy enemy
+|-
+! rowspan="2" | Level !! rowspan="2" | Cumulative<br>research cost !! colspan="2" | {{Icon|Behemoth_biter}} !! colspan="2" | {{Icon|Behemoth_spitter}}
+|-
+! {{Icon|Crude oil}} !! {{Icon|Light oil}} !! {{Icon|Crude oil}} !! {{Icon|Light oil}}
+|-
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|0}}
+| -
+| {{Icon|Crude oil|800}}
+| {{Icon|Light oil|728}}
+| {{Icon|Crude oil|400}}
+| {{Icon|Light oil|364}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|1}}
+| 300
+| {{Icon|Crude oil|556}}
+| {{Icon|Light oil|506}}
+| {{Icon|Crude oil|279}}
+| {{Icon|Light oil|253}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|2}}
+| 900
+| {{Icon|Crude oil|409}}
+| {{Icon|Light oil|372}}
+| {{Icon|Crude oil|205}}
+| {{Icon|Light oil|186}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|3}}
+| 2.1k
+| {{Icon|Crude oil|313}}
+| {{Icon|Light oil|285}}
+| {{Icon|Crude oil|157}}
+| {{Icon|Light oil|143}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|4}}
+| 3.7k
+| {{Icon|Crude oil|223}}
+| {{Icon|Light oil|202}}
+| {{Icon|Crude oil|112}}
+| {{Icon|Light oil|101}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|5}}
+| 6.2k
+| {{Icon|Crude oil|166}}
+| {{Icon|Light oil|151}}
+| {{Icon|Crude oil|84}}
+| {{Icon|Light oil|76}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|6}}
+| 9.8k
+| {{Icon|Crude oil|119}}
+| {{Icon|Light oil|108}}
+| {{Icon|Crude oil|60}}
+| {{Icon|Light oil|55}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|7}}
+| 16.8k
+| {{Icon|Crude oil|103}}
+| {{Icon|Light oil|93}}
+| {{Icon|Crude oil|52}}
+| {{Icon|Light oil|47}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|8}}
+| 30.8k
+| {{Icon|Crude oil|90}}
+| {{Icon|Light oil|82}}
+| {{Icon|Crude oil|45}}
+| {{Icon|Light oil|41}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|9}}
+| 58.8k
+| {{Icon|Crude oil|79}}
+| {{Icon|Light oil|72}}
+| {{Icon|Crude oil|40}}
+| {{Icon|Light oil|36}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|10}}
+| 114.8k
+| {{Icon|Crude oil|70}}
+| {{Icon|Light oil|64}}
+| {{Icon|Crude oil|36}}
+| {{Icon|Light oil|32}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|11}}
+| 226.8k
+| {{Icon|Crude oil|63}}
+| {{Icon|Light oil|57}}
+| {{Icon|Crude oil|32}}
+| {{Icon|Light oil|29}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|12}}
+| 450.8k
+| {{Icon|Crude oil|56}}
+| {{Icon|Light oil|51}}
+| {{Icon|Crude oil|28}}
+| {{Icon|Light oil|26}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|13}}
+| 898.8k
+| {{Icon|Crude oil|51}}
+| {{Icon|Light oil|46}}
+| {{Icon|Crude oil|26}}
+| {{Icon|Light oil|24}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|14}}
+| 1.795M
+| {{Icon|Crude oil|46}}
+| {{Icon|Light oil|42}}
+| {{Icon|Crude oil|24}}
+| {{Icon|Light oil|21}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|15}}
+| 3.587M
+| {{Icon|Crude oil|42}}
+| {{Icon|Light oil|38}}
+| {{Icon|Crude oil|21}}
+| {{Icon|Light oil|20}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|16}}
+| 7.171M
+| {{Icon|Crude oil|39}}
+| {{Icon|Light oil|35}}
+| {{Icon|Crude oil|20}}
+| {{Icon|Light oil|18}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|17}}
+| 14.339M
+| {{Icon|Crude oil|36}}
+| {{Icon|Light oil|32}}
+| {{Icon|Crude oil|18}}
+| rowspan="2" | {{Icon|Light oil|16}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|18}}
+| 28.675M
+| {{Icon|Crude oil|32}}
+| {{Icon|Light oil|30}}
+| rowspan="2" | {{Icon|Crude oil|16}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|19}}
+| 57.347M
+| {{Icon|Crude oil|30}}
+| {{Icon|Light oil|28}}
+| {{Icon|Light oil|14}}
+|- style="vertical-align:top;"
+! style="vertical-align:middle;" | {{Icontech|Refined flammables (research)|20}}
+| 114.691M
+| {{Icon|Crude oil|28}}
+| {{Icon|Light oil|26}}
+| {{Icon|Crude oil|15}}
+| {{Icon|Light oil|13}}
+|}
