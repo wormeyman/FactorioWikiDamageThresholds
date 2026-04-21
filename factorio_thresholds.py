@@ -314,6 +314,55 @@ def _ewd_cumulative_costs(max_lvl: int = 20) -> dict:
     return result
 
 
+_RF = {0: 0.0, 1: 0.2, 2: 0.4, 3: 0.6, 4: 0.9, 5: 1.2, 6: 1.6}
+
+
+def rf_single(level: int) -> float:
+    """Cumulative single-factor bonus (ammo-damage or turret-attack separately).
+
+    Levels 1-3: +0.2/level, levels 4-5: +0.3/level, level 6: +0.4,
+    levels 7+: +0.2/level (infinite research).
+    """
+    if level <= 6:
+        return 1.0 + _RF[level]
+    return 2.6 + 0.2 * (level - 6)
+
+
+def rf_mult(level: int) -> float:
+    """Refined Flammables total damage multiplier.
+
+    Both ammo-damage and turret-attack each get rf_single independently
+    (same pattern as Physical Projectile research). Total = rf_single^2.
+    """
+    m = rf_single(level)
+    return m * m
+
+
+def _rf_cumulative_costs(max_lvl: int = 20) -> dict:
+    """Cumulative total science pack cost to REACH each refined flammables level.
+
+    Levels 1-6: fixed count × pack type count (derived from factorioraw.json).
+    Level 7+: 2^(L-7)*1000 packs × 7 types per level (infinite formula).
+    """
+    _PER_LEVEL = {
+        1: 100 * 3,
+        2: 200 * 3,
+        3: 300 * 4,
+        4: 400 * 4,
+        5: 500 * 5,
+        6: 600 * 6,
+    }
+    total = 0
+    result: dict = {0: '-'}
+    for lvl in range(1, max_lvl + 1):
+        if lvl <= 6:
+            total += _PER_LEVEL[lvl]
+        else:
+            total += 7 * (2 ** (lvl - 7)) * 1000
+        result[lvl] = _si(total)
+    return result
+
+
 TREES = {
     'stronger_explosives': {
         'name': 'Stronger Explosives',
@@ -445,6 +494,46 @@ TREES = {
         },
         'note': "''Note: Big Stomper values are approximate. The Tesla bolt hits 3-5 of its 5 legs per activation depending on positioning; the table uses a 4-hit average. Actual activations may vary by ±2.''",
     },
+    'refined_flammables': {
+        'name': 'Refined Flammables (flamethrower turret vs enemies)',
+        'intro': (
+            "== Thresholds ==\n"
+            "''Note: The values in this table are conservative estimates."
+            " The [[flamethrower turret]] stream also ignites ground fire and applies a fire"
+            " sticker that deal additional damage over time;"
+            " actual fluid consumed to kill an enemy is typically less than shown.''\n"
+            "The table below shows the fluid units consumed by a [[flamethrower turret]] to"
+            " destroy each enemy at each level of [[Refined flammables (research)]]."
+            " Two fluids are compared: [[crude oil]] (base) and [[light oil]] (10% more damage"
+            " per stream pulse).\n"
+        ),
+        'mult_fn': rf_mult,
+        'tech_name': 'Refined flammables (research)',
+        'cumulative_costs': _rf_cumulative_costs(),
+        'caption': 'Fluid units required to destroy enemy',
+        'units_per_shot': 0.8,
+        'max_level': 20,
+        'weapons': [
+            ('Crude oil', 3.0, 'fire', '{{Icon|Crude oil}}', 'Crude oil', 1),
+            ('Light oil', 3.3, 'fire', '{{Icon|Light oil}}', 'Light oil', 1),
+        ],
+        'target_groups': [
+            ('Enemies', {
+                'Behemoth Biter':   BITERS['Behemoth Biter'],
+                'Behemoth Spitter': SPITTER_ENEMIES['Behemoth Spitter'],
+            }, 1.0),
+        ],
+        'target_wiki_labels': {
+            'Behemoth Biter':  '{{Icon|Behemoth_biter}}',
+            'Behemoth Spitter': '{{Icon|Behemoth_spitter}}',
+        },
+        'note': (
+            "''Note: Values account for direct stream damage only"
+            " (3 fire damage per pulse, 15 pulses per second)."
+            " Fire sticker and ground fire deal additional damage over time,"
+            " so actual fluid consumed is typically less than shown.''"
+        ),
+    },
 }
 
 
@@ -485,6 +574,7 @@ def build_columns(tree: dict) -> list:
                     'round_per_hit':       tree.get('round_per_hit', False),
                     'extra_resists':       extra_resists,
                     'hits_per_activation': target.get('hits_per_activation', 1),
+                'units_per_shot':      tree.get('units_per_shot'),
                 })
     return cols
 
@@ -515,13 +605,18 @@ def _col_shots(col: dict, mult: float) -> int:
 
 
 def _col_display(col: dict, mult: float) -> int:
-    """Display units (magazines or single shots) needed to kill the target.
+    """Display units (magazines, single shots, or fluid units) to kill the target.
 
     For magazine weapons (magazine_size > 1) this is ceil(bullets / size).
-    Breakpoints and the table are built from display values so that rows
-    only split when the visible count changes, not on every bullet boundary.
+    For fluid weapons (units_per_shot set) this is ceil(shots * units_per_shot).
+    Breakpoints are built from display values so rows only split on visible changes.
     """
-    return math.ceil(_col_shots(col, mult) / col['magazine_size'])
+    shots = _col_shots(col, mult)
+    mags = math.ceil(shots / col['magazine_size'])
+    upc = col.get('units_per_shot')
+    if upc is not None:
+        return math.ceil(mags * upc)
+    return mags
 
 
 def find_max_level(tree: dict, cap: int = 500) -> int:

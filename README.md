@@ -18,11 +18,13 @@ python3 factorio_thresholds.py laser_weapons
 python3 factorio_thresholds.py physical_projectile
 python3 factorio_thresholds.py artillery_shell_damage
 python3 factorio_thresholds.py electric_weapons_damage
+python3 factorio_thresholds.py refined_flammables
 
 # Regenerate wiki articles
 python3 factorio_thresholds.py stronger_explosives --wiki > WikiArticles/StrongerExplosivesResearch.txt
 python3 factorio_thresholds.py artillery_shell_damage --wiki > WikiArticles/ArtilleryShellDamageResearch.txt
 python3 factorio_thresholds.py electric_weapons_damage --wiki > WikiArticles/ElectricWeaponsDamageResearch.txt
+python3 factorio_thresholds.py refined_flammables --wiki > WikiArticles/RefinedFlammablesResearch.txt
 ```
 
 ### `factorio_productivity.py` - Productivity threshold tables

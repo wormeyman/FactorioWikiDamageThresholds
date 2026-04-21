@@ -27,6 +27,7 @@ This is a content repository for contributions to the [Factorio Wiki](https://wi
 - **`WikiArticles/LowDensityStructureProductivityResearch.txt`** - MediaWiki markup source for the "Low density structure productivity (research)" wiki page thresholds section.
 - **`WikiArticles/PlasticBarProductivityResearch.txt`** - MediaWiki markup source for the "Plastic bar productivity (research)" wiki page thresholds section.
 - **`WikiArticles/ElectricWeaponsDamageResearch.txt`** - MediaWiki markup source for the "Electric weapons damage (research)" wiki page thresholds section.
+- **`WikiArticles/RefinedFlammablesResearch.txt`** - MediaWiki markup source for the "Refined flammables (research)" wiki page thresholds section.
 - **`WikiArticles/enemies_wiki.json`** - Factorio wiki API response for the Enemies page. Extract wikitext via `data['parse']['wikitext']['*']`. Contains HP and resistance data for biters, spawners, and worms.
 - **`WikiArticles/Technologies.json`** - Factorio wiki API response for the Technologies page. Contains infinite research data, pricing formulas, and interesting breakpoints.
 
@@ -309,6 +310,14 @@ python3 factorio_thresholds.py electric_weapons_damage
 # Level 20: Big Stomper = 10 shots (15000/1632 = 9.19 → 10)
 
 python3 factorio_thresholds.py electric_weapons_damage --wiki > WikiArticles/ElectricWeaponsDamageResearch.txt
+
+python3 factorio_thresholds.py refined_flammables
+# Level 0 / Crude oil / Behemoth Biter:   800
+# Level 0 / Light oil / Behemoth Biter:   728
+# Level 6 / Crude oil / Behemoth Biter:   119
+# Level 20 / Crude oil / Behemoth Biter:  28
+
+python3 factorio_thresholds.py refined_flammables --wiki > WikiArticles/RefinedFlammablesResearch.txt
 ```
 
 ## Known Sheet vs Wiki Discrepancies
