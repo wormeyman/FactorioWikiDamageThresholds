@@ -496,6 +496,17 @@ TREES = {
     },
     'refined_flammables': {
         'name': 'Refined Flammables (flamethrower turret vs enemies)',
+        'intro': (
+            "== Thresholds ==\n"
+            "''Note: The values in this table are conservative estimates."
+            " The [[flamethrower turret]] stream also ignites ground fire and applies a fire"
+            " sticker that deal additional damage over time;"
+            " actual fluid consumed to kill an enemy is typically less than shown.''\n"
+            "The table below shows the fluid units consumed by a [[flamethrower turret]] to"
+            " destroy each enemy at each level of [[Refined flammables (research)]]."
+            " Two fluids are compared: [[crude oil]] (base) and [[light oil]] (10% more damage"
+            " per stream pulse).\n"
+        ),
         'mult_fn': rf_mult,
         'tech_name': 'Refined flammables (research)',
         'cumulative_costs': _rf_cumulative_costs(),
@@ -516,6 +527,12 @@ TREES = {
             'Behemoth Biter':  '{{Icon|Behemoth_biter}}',
             'Behemoth Spitter': '{{Icon|Behemoth_spitter}}',
         },
+        'note': (
+            "''Note: Values account for direct stream damage only"
+            " (3 fire damage per pulse, 15 pulses per second)."
+            " Fire sticker and ground fire deal additional damage over time,"
+            " so actual fluid consumed is typically less than shown.''"
+        ),
     },
 }
 

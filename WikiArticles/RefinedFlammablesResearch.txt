@@ -1,3 +1,7 @@
+== Thresholds ==
+''Note: The values in this table are conservative estimates. The [[flamethrower turret]] stream also ignites ground fire and applies a fire sticker that deal additional damage over time; actual fluid consumed to kill an enemy is typically less than shown.''
+The table below shows the fluid units consumed by a [[flamethrower turret]] to destroy each enemy at each level of [[Refined flammables (research)]]. Two fluids are compared: [[crude oil]] (base) and [[light oil]] (10% more damage per stream pulse).
+
 <!-- Refined Flammables (flamethrower turret vs enemies) damage thresholds -->
 {| class="wikitable" style="text-align:center;"
 ! colspan="6" | Fluid units required to destroy enemy
@@ -152,3 +156,5 @@
 | {{Icon|Crude oil|15}}
 | {{Icon|Light oil|13}}
 |}
+
+''Note: Values account for direct stream damage only (3 fire damage per pulse, 15 pulses per second). Fire sticker and ground fire deal additional damage over time, so actual fluid consumed is typically less than shown.''
