@@ -314,6 +314,55 @@ def _ewd_cumulative_costs(max_lvl: int = 20) -> dict:
     return result
 
 
+_RF = {0: 0.0, 1: 0.2, 2: 0.4, 3: 0.6, 4: 0.9, 5: 1.2, 6: 1.6}
+
+
+def rf_single(level: int) -> float:
+    """Cumulative single-factor bonus (ammo-damage or turret-attack separately).
+
+    Levels 1-3: +0.2/level, levels 4-5: +0.3/level, level 6: +0.4,
+    levels 7+: +0.2/level (infinite research).
+    """
+    if level <= 6:
+        return 1.0 + _RF[level]
+    return 2.6 + 0.2 * (level - 6)
+
+
+def rf_mult(level: int) -> float:
+    """Refined Flammables total damage multiplier.
+
+    Both ammo-damage and turret-attack each get rf_single independently
+    (same pattern as Physical Projectile research). Total = rf_single^2.
+    """
+    m = rf_single(level)
+    return m * m
+
+
+def _rf_cumulative_costs(max_lvl: int = 20) -> dict:
+    """Cumulative total science pack cost to REACH each refined flammables level.
+
+    Levels 1-6: fixed count × pack type count (derived from factorioraw.json).
+    Level 7+: 2^(L-7)*1000 packs × 7 types per level (infinite formula).
+    """
+    _PER_LEVEL = {
+        1: 100 * 3,
+        2: 200 * 3,
+        3: 300 * 4,
+        4: 400 * 4,
+        5: 500 * 5,
+        6: 600 * 6,
+    }
+    total = 0
+    result: dict = {0: '-'}
+    for lvl in range(1, max_lvl + 1):
+        if lvl <= 6:
+            total += _PER_LEVEL[lvl]
+        else:
+            total += 7 * (2 ** (lvl - 7)) * 1000
+        result[lvl] = _si(total)
+    return result
+
+
 TREES = {
     'stronger_explosives': {
         'name': 'Stronger Explosives',
