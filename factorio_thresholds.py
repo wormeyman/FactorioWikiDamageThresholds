@@ -494,6 +494,29 @@ TREES = {
         },
         'note': "''Note: Big Stomper values are approximate. The Tesla bolt hits 3-5 of its 5 legs per activation depending on positioning; the table uses a 4-hit average. Actual activations may vary by ±2.''",
     },
+    'refined_flammables': {
+        'name': 'Refined Flammables (flamethrower turret vs enemies)',
+        'mult_fn': rf_mult,
+        'tech_name': 'Refined flammables (research)',
+        'cumulative_costs': _rf_cumulative_costs(),
+        'caption': 'Fluid units required to destroy enemy',
+        'units_per_shot': 0.8,
+        'max_level': 20,
+        'weapons': [
+            ('Crude oil', 3.0, 'fire', '{{Icon|Crude oil}}', 'Crude oil', 1),
+            ('Light oil', 3.3, 'fire', '{{Icon|Light oil}}', 'Light oil', 1),
+        ],
+        'target_groups': [
+            ('Enemies', {
+                'Behemoth Biter':   BITERS['Behemoth Biter'],
+                'Behemoth Spitter': SPITTER_ENEMIES['Behemoth Spitter'],
+            }, 1.0),
+        ],
+        'target_wiki_labels': {
+            'Behemoth Biter':  '{{Icon|Behemoth_biter}}',
+            'Behemoth Spitter': '{{Icon|Behemoth_spitter}}',
+        },
+    },
 }
 
 
